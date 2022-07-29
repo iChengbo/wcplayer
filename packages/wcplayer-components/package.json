@@ -1,5 +1,5 @@
 {
-  "name": "wcplayer",
+  "name": "@wcplayer/components",
   "version": "0.0.1",
   "description": "Web Component Player",
   "main": "dist/index.cjs.js",
