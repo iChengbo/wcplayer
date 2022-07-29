@@ -1,0 +1,12 @@
+{
+  "private": true,
+  "name": "wcplayer",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "pnpm run build -r --stream"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT"
+}

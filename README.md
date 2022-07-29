@@ -1,1 +1,1 @@
-# wcplayer
+# WcPlayer
