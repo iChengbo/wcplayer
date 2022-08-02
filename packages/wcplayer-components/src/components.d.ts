@@ -6,27 +6,30 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
-    interface WcPlay {
+    interface WcControls {
+    }
+    interface WcCoverLayer {
+    }
+    interface WcFullscreen {
+        "ele": HTMLElement;
+    }
+    interface WcLayers {
+    }
+    interface WcPictureInPicture {
+        "nativeVideo": HTMLVideoElement;
+    }
+    interface WcPlayPause {
         "isPlaying": boolean;
         "pauseFunc": () => void;
         "playFunc": () => void;
     }
+    interface WcPlayPauseLayer {
+    }
     interface WcPlayer {
-        /**
-          * 是否自动播放
-         */
         "autoplay": boolean;
-        /**
-          * 是否显示默认播放控件（播放/暂停按钮、播放进度、时间）
-         */
         "controls": boolean;
-        /**
-          * 是否静音播放
-         */
+        "getNativeVideo": () => Promise<HTMLVideoElement>;
         "muted": boolean;
-        /**
-          * 要播放视频的资源地址
-         */
         "src": string;
     }
     interface WcProgress {
@@ -37,6 +40,7 @@ export namespace Components {
     interface WcVideo {
         "autoplay": boolean;
         "controls": boolean;
+        "getNativeVideo": () => Promise<HTMLVideoElement>;
         "loop": boolean;
         "muted": boolean;
         "nativeProps": {};
@@ -46,6 +50,7 @@ export namespace Components {
         "seek": (position: number) => Promise<void>;
         "src": string;
         "stop": () => Promise<void>;
+        "volume": number;
     }
     interface WcVolume {
         "cancelMute": () => void;
@@ -60,11 +65,47 @@ export interface WcVideoCustomEvent<T> extends CustomEvent<T> {
     target: HTMLWcVideoElement;
 }
 declare global {
-    interface HTMLWcPlayElement extends Components.WcPlay, HTMLStencilElement {
+    interface HTMLWcControlsElement extends Components.WcControls, HTMLStencilElement {
     }
-    var HTMLWcPlayElement: {
-        prototype: HTMLWcPlayElement;
-        new (): HTMLWcPlayElement;
+    var HTMLWcControlsElement: {
+        prototype: HTMLWcControlsElement;
+        new (): HTMLWcControlsElement;
+    };
+    interface HTMLWcCoverLayerElement extends Components.WcCoverLayer, HTMLStencilElement {
+    }
+    var HTMLWcCoverLayerElement: {
+        prototype: HTMLWcCoverLayerElement;
+        new (): HTMLWcCoverLayerElement;
+    };
+    interface HTMLWcFullscreenElement extends Components.WcFullscreen, HTMLStencilElement {
+    }
+    var HTMLWcFullscreenElement: {
+        prototype: HTMLWcFullscreenElement;
+        new (): HTMLWcFullscreenElement;
+    };
+    interface HTMLWcLayersElement extends Components.WcLayers, HTMLStencilElement {
+    }
+    var HTMLWcLayersElement: {
+        prototype: HTMLWcLayersElement;
+        new (): HTMLWcLayersElement;
+    };
+    interface HTMLWcPictureInPictureElement extends Components.WcPictureInPicture, HTMLStencilElement {
+    }
+    var HTMLWcPictureInPictureElement: {
+        prototype: HTMLWcPictureInPictureElement;
+        new (): HTMLWcPictureInPictureElement;
+    };
+    interface HTMLWcPlayPauseElement extends Components.WcPlayPause, HTMLStencilElement {
+    }
+    var HTMLWcPlayPauseElement: {
+        prototype: HTMLWcPlayPauseElement;
+        new (): HTMLWcPlayPauseElement;
+    };
+    interface HTMLWcPlayPauseLayerElement extends Components.WcPlayPauseLayer, HTMLStencilElement {
+    }
+    var HTMLWcPlayPauseLayerElement: {
+        prototype: HTMLWcPlayPauseLayerElement;
+        new (): HTMLWcPlayPauseLayerElement;
     };
     interface HTMLWcPlayerElement extends Components.WcPlayer, HTMLStencilElement {
     }
@@ -91,7 +132,13 @@ declare global {
         new (): HTMLWcVolumeElement;
     };
     interface HTMLElementTagNameMap {
-        "wc-play": HTMLWcPlayElement;
+        "wc-controls": HTMLWcControlsElement;
+        "wc-cover-layer": HTMLWcCoverLayerElement;
+        "wc-fullscreen": HTMLWcFullscreenElement;
+        "wc-layers": HTMLWcLayersElement;
+        "wc-picture-in-picture": HTMLWcPictureInPictureElement;
+        "wc-play-pause": HTMLWcPlayPauseElement;
+        "wc-play-pause-layer": HTMLWcPlayPauseLayerElement;
         "wc-player": HTMLWcPlayerElement;
         "wc-progress": HTMLWcProgressElement;
         "wc-video": HTMLWcVideoElement;
@@ -99,27 +146,29 @@ declare global {
     }
 }
 declare namespace LocalJSX {
-    interface WcPlay {
+    interface WcControls {
+    }
+    interface WcCoverLayer {
+    }
+    interface WcFullscreen {
+        "ele"?: HTMLElement;
+    }
+    interface WcLayers {
+    }
+    interface WcPictureInPicture {
+        "nativeVideo"?: HTMLVideoElement;
+    }
+    interface WcPlayPause {
         "isPlaying"?: boolean;
         "pauseFunc"?: () => void;
         "playFunc"?: () => void;
     }
+    interface WcPlayPauseLayer {
+    }
     interface WcPlayer {
-        /**
-          * 是否自动播放
-         */
         "autoplay"?: boolean;
-        /**
-          * 是否显示默认播放控件（播放/暂停按钮、播放进度、时间）
-         */
         "controls"?: boolean;
-        /**
-          * 是否静音播放
-         */
         "muted"?: boolean;
-        /**
-          * 要播放视频的资源地址
-         */
         "src"?: string;
     }
     interface WcProgress {
@@ -133,6 +182,7 @@ declare namespace LocalJSX {
         "loop"?: boolean;
         "muted"?: boolean;
         "nativeProps"?: {};
+        "onCanplay"?: (event: WcVideoCustomEvent<any>) => void;
         "onDurationchange"?: (event: WcVideoCustomEvent<any>) => void;
         "onEnded"?: (event: WcVideoCustomEvent<any>) => void;
         "onPause"?: (event: WcVideoCustomEvent<any>) => void;
@@ -141,6 +191,7 @@ declare namespace LocalJSX {
         "onVolumechange"?: (event: WcVideoCustomEvent<any>) => void;
         "poster"?: string;
         "src"?: string;
+        "volume"?: number;
     }
     interface WcVolume {
         "cancelMute"?: () => void;
@@ -150,7 +201,13 @@ declare namespace LocalJSX {
         "mute"?: () => void;
     }
     interface IntrinsicElements {
-        "wc-play": WcPlay;
+        "wc-controls": WcControls;
+        "wc-cover-layer": WcCoverLayer;
+        "wc-fullscreen": WcFullscreen;
+        "wc-layers": WcLayers;
+        "wc-picture-in-picture": WcPictureInPicture;
+        "wc-play-pause": WcPlayPause;
+        "wc-play-pause-layer": WcPlayPauseLayer;
         "wc-player": WcPlayer;
         "wc-progress": WcProgress;
         "wc-video": WcVideo;
@@ -161,7 +218,13 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "wc-play": LocalJSX.WcPlay & JSXBase.HTMLAttributes<HTMLWcPlayElement>;
+            "wc-controls": LocalJSX.WcControls & JSXBase.HTMLAttributes<HTMLWcControlsElement>;
+            "wc-cover-layer": LocalJSX.WcCoverLayer & JSXBase.HTMLAttributes<HTMLWcCoverLayerElement>;
+            "wc-fullscreen": LocalJSX.WcFullscreen & JSXBase.HTMLAttributes<HTMLWcFullscreenElement>;
+            "wc-layers": LocalJSX.WcLayers & JSXBase.HTMLAttributes<HTMLWcLayersElement>;
+            "wc-picture-in-picture": LocalJSX.WcPictureInPicture & JSXBase.HTMLAttributes<HTMLWcPictureInPictureElement>;
+            "wc-play-pause": LocalJSX.WcPlayPause & JSXBase.HTMLAttributes<HTMLWcPlayPauseElement>;
+            "wc-play-pause-layer": LocalJSX.WcPlayPauseLayer & JSXBase.HTMLAttributes<HTMLWcPlayPauseLayerElement>;
             "wc-player": LocalJSX.WcPlayer & JSXBase.HTMLAttributes<HTMLWcPlayerElement>;
             "wc-progress": LocalJSX.WcProgress & JSXBase.HTMLAttributes<HTMLWcProgressElement>;
             "wc-video": LocalJSX.WcVideo & JSXBase.HTMLAttributes<HTMLWcVideoElement>;

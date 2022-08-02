@@ -1,0 +1,21 @@
+:host {
+  /* display: block; */
+  height: 40px;
+  width: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.btn-pause,
+.btn-play {
+  outline: none;
+  margin: 0;
+  padding: 0;
+  border: 1px solid transparent;
+  background: transparent;
+}
+
+svg {
+  width: 16px;
+  height: 20px;
+}

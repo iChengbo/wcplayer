@@ -1,18 +1,18 @@
 import { newSpecPage } from '@stencil/core/testing';
-import { WcPlay } from '../wc-play';
+import { WcFullscreen } from '../wc-fullscreen';
 
-describe('wc-play', () => {
+describe('wc-fullscreen', () => {
   it('renders', async () => {
     const page = await newSpecPage({
-      components: [WcPlay],
-      html: `<wc-play></wc-play>`,
+      components: [WcFullscreen],
+      html: `<wc-fullscreen></wc-fullscreen>`,
     });
     expect(page.root).toEqualHtml(`
-      <wc-play>
+      <wc-fullscreen>
         <mock:shadow-root>
           <slot></slot>
         </mock:shadow-root>
-      </wc-play>
+      </wc-fullscreen>
     `);
   });
 });

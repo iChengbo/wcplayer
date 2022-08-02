@@ -16,12 +16,14 @@
 | `nativeProps` | --         |             | `{}`      | `{}`        |
 | `poster`      | `poster`   |             | `string`  | `undefined` |
 | `src`         | `src`      |             | `string`  | `undefined` |
+| `volume`      | `volume`   |             | `number`  | `undefined` |
 
 
 ## Events
 
 | Event            | Description | Type               |
 | ---------------- | ----------- | ------------------ |
+| `canplay`        |             | `CustomEvent<any>` |
 | `durationchange` |             | `CustomEvent<any>` |
 | `ended`          |             | `CustomEvent<any>` |
 | `pause`          |             | `CustomEvent<any>` |
@@ -31,6 +33,16 @@
 
 
 ## Methods
+
+### `getNativeVideo() => Promise<HTMLVideoElement>`
+
+
+
+#### Returns
+
+Type: `Promise<HTMLVideoElement>`
+
+
 
 ### `pause() => Promise<void>`
 
@@ -77,7 +89,7 @@ Type: `Promise<void>`
 
 ### Used by
 
- - [wc-player](../wc-player)
+ - [wc-player](../../players/wc-player)
 
 ### Graph
 ```mermaid

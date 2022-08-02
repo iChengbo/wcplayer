@@ -1,8 +1,7 @@
-import { Component, Host, h, Prop, Method, Event, EventEmitter } from '@stencil/core';
+import { Component, Host, h, Prop, Method, Event, EventEmitter, Watch } from '@stencil/core';
 import classNames from 'classnames';
 
 import { throttle } from '../../utils/utils';
-import { Engine } from './engine';
 
 @Component({
   tag: 'wc-video',
@@ -18,8 +17,18 @@ export class WcVideo {
   @Prop() muted = false
   @Prop() poster: string
   @Prop() src: string
+  @Prop() volume: number
 
   @Prop() nativeProps = {}
+
+  @Watch('volume')
+  watchVolumeHandler(volume: number) {
+    this.videoRef.volume = volume
+  }
+
+  @Event({
+    eventName: 'canplay'
+  }) onCanPlay: EventEmitter
 
   @Event({
     eventName: 'play'
@@ -45,6 +54,9 @@ export class WcVideo {
     eventName: 'volumechange'
   }) onVolumechange: EventEmitter
 
+  @Method() async getNativeVideo () {
+    return this.videoRef
+  }
 
   @Method() async play() {
     this._play()
@@ -72,23 +84,8 @@ export class WcVideo {
     this.videoRef.currentTime = position
   }
 
-  componentDidLoad() {
-    this.initialize()
-  }
-
-  initialize = () => {
-    const { src, videoRef } = this
-
-    const engine = new Engine({
-      src,
-      type: 'HLS',
-    }, videoRef)
-
-    engine.hls.on(engine.Events.MANIFEST_PARSED, async () => {
-      if (this.autoplay) {
-        await this._play()
-      }
-    })
+  handleCanPlay = () => {
+    this.onCanPlay.emit()
   }
 
   handlePlay = () => {
@@ -118,10 +115,12 @@ export class WcVideo {
 
   render() {
     const {
-      muted,
+      src,
       controls,
       loop,
       poster,
+      muted,
+      autoplay,
     } = this
 
     return (
@@ -135,10 +134,13 @@ export class WcVideo {
           class={classNames('wc-video-video')}
           webkit-playsinline={true}
           playsinline={true}
+          src={src}
           controls={controls}
           muted={muted}
+          autoPlay={autoplay}
           loop={loop}
           poster={poster}
+          onCanPlay={this.handleCanPlay}
           onPlay={this.handlePlay}
           onPause={this.handlePause}
           onTimeUpdate={this.handleTimeUpdate}

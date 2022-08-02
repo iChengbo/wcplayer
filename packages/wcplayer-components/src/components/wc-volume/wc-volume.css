@@ -1,3 +1,35 @@
 :host {
-  display: block;
+  /* display: block; */
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  height: 40px;
+}
+
+button {
+  outline: none;
+  margin: 0;
+  padding: 0;
+  border: 1px solid transparent;
+  background: transparent;
+
+  height: 40px;
+  width: 40px;
+}
+
+svg {
+  width: 20px;
+}
+
+.volume-panel {
+  width: 50px;
+  height: 2px;
+  background-color: #666
+}
+
+.volume-slider {
+  height: 2px;
+  background: #fff;
 }
