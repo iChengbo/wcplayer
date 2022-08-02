@@ -1,6 +1,6 @@
 {
   "name": "@wcplayer/components",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Web Component Player",
   "main": "dist/index.cjs.js",
   "module": "dist/index.js",
