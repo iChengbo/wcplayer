@@ -1,4 +1,4 @@
-# wc-layers
+# wc-play-pause-layer
 
 
 
@@ -9,18 +9,15 @@
 
 ### Used by
 
- - [wc-player](../../players/wc-player)
-
-### Depends on
-
-- [wc-play-pause-layer](../wc-play-pause-layer)
+ - [wc-layers](../wc-layers)
+ - [wc-player](../wc-player)
 
 ### Graph
 ```mermaid
 graph TD;
   wc-layers --> wc-play-pause-layer
-  wc-player --> wc-layers
-  style wc-layers fill:#f9f,stroke:#333,stroke-width:4px
+  wc-player --> wc-play-pause-layer
+  style wc-play-pause-layer fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
 ----------------------------------------------

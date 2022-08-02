@@ -20,7 +20,7 @@
 
 ### Used by
 
- - [wc-player](../../players/wc-player)
+ - [wc-player](../wc-player)
 
 ### Graph
 ```mermaid

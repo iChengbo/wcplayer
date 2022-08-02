@@ -32,14 +32,14 @@ Type: `Promise<HTMLVideoElement>`
 
 ### Depends on
 
-- [wc-video](../../components/wc-video)
-- [wc-layers](../../layers/wc-layers)
-- [wc-play-pause-layer](../../layers/wc-play-pause-layer)
-- [wc-controls](../../components/wc-controls)
-- [wc-play-pause](../../components/wc-play-pause)
-- [wc-volume](../../components/wc-volume)
-- [wc-picture-in-picture](../../components/wc-picture-in-picture)
-- [wc-fullscreen](../../components/wc-fullscreen)
+- [wc-video](../wc-video)
+- [wc-layers](../wc-layers)
+- [wc-play-pause-layer](../wc-play-pause-layer)
+- [wc-controls](../wc-controls)
+- [wc-play-pause](../wc-play-pause)
+- [wc-volume](../wc-volume)
+- [wc-picture-in-picture](../wc-picture-in-picture)
+- [wc-fullscreen](../wc-fullscreen)
 
 ### Graph
 ```mermaid
