@@ -93,7 +93,7 @@ export class WcPlayer {
                 this._volume = volume
               }}
             ></wc-volume>
-            <div style={{ flex: '1' }}></div>
+            <wc-spacer></wc-spacer>
             <wc-picture-in-picture nativeVideo={this._nativeVideo}></wc-picture-in-picture>
             <wc-fullscreen ele={this.ele}></wc-fullscreen>
           </wc-controls>
