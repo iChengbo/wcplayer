@@ -17,7 +17,9 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "@wcplayer/components": "workspace:^0.0.3",
+    "@wcplayer/components": "workspace:^0.0.3"
+  },
+  "devDependencies": {
     "vue": "^3.2.37"
   }
 }
