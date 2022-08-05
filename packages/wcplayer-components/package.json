@@ -1,7 +1,12 @@
 {
   "name": "@wcplayer/components",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Web Component Player",
+  "author": "iChengbo <https://github.com/iChengbo>",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
   "main": "dist/index.cjs.js",
   "module": "dist/index.js",
   "es2015": "dist/esm/index.mjs",
@@ -36,6 +41,5 @@
     "jest": "^27.4.5",
     "jest-cli": "^27.4.5",
     "puppeteer": "^15.5.0"
-  },
-  "license": "MIT"
+  }
 }
