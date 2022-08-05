@@ -1,0 +1,21 @@
+name: Release
+on:
+  push:
+    branches:
+     - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@master
+
+    - name: Install pnpm and npm
+      run: npm i -g pnpm
+
+    - name: Install
+      run: pnpm install
+    
+    - name: Build
+      run: pnpm run build
