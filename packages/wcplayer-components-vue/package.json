@@ -17,7 +17,7 @@
     "tsc": "tsc -p ."
   },
   "dependencies": {
-    "@wcplayer/components": "workspace:^0.0.3"
+    "@wcplayer/components": "workspace:^0.0.4"
   },
   "devDependencies": {
     "vue": "^3.2.37"
