@@ -2,6 +2,7 @@
   "name": "wcplayer",
   "version": "0.0.4",
   "private": true,
+  "packageManager": "pnpm@7.6.0",
   "description": "",
   "author": "Chengbo Xie<https://github.com/iChengbo>",
   "license": "MIT",
