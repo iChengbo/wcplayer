@@ -1,8 +1,13 @@
 import { Config } from '@stencil/core';
+import { vueOutputTarget } from '@stencil/vue-output-target';
 
 export const config: Config = {
   namespace: 'wcplayer',
   outputTargets: [
+    vueOutputTarget({
+      componentCorePackage: '@wcplayer/components',
+      proxiesFile: '../wcplayer-components-vue/src/components.ts',
+    }),
     {
       type: 'dist',
       esmLoaderPath: '../loader',

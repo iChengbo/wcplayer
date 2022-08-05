@@ -1,0 +1,23 @@
+{
+  "name": "@wcplayer/components-vue",
+  "version": "0.0.1",
+  "description": "",
+  "publishConfig": {
+    "access": "public"
+  },
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "files": [
+    "lib"
+  ],
+  "scripts": {
+    "build": "npm run tsc",
+    "tsc": "tsc -p ."
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@wcplayer/components": "workspace:^0.0.3",
+    "vue": "^3.2.37"
+  }
+}
