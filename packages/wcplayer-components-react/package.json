@@ -1,5 +1,5 @@
 {
-  "name": "@wcplayer/components-vue",
+  "name": "@wcplayer/components-react",
   "version": "0.0.1",
   "description": "",
   "author": "",
@@ -7,10 +7,11 @@
   "publishConfig": {
     "access": "public"
   },
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "files": [
-    "dist"
+    "dist/"
   ],
   "scripts": {
     "build": "npm run tsc",
@@ -20,6 +21,9 @@
     "@wcplayer/components": "workspace:^0.0.3"
   },
   "devDependencies": {
-    "vue": "^3.2.37"
+    "@types/react": "^18.0.15",
+    "@types/react-dom": "^18.0.6",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   }
 }
