@@ -13,6 +13,7 @@
     "dist"
   ],
   "scripts": {
+    "test": "jest",
     "build": "npm run clean && npm run compile",
     "clean": "rimraf dist",
     "compile": "npm run tsc",
@@ -22,6 +23,29 @@
     "@wcplayer/components": "workspace:^0.0.4"
   },
   "devDependencies": {
+    "@vue/test-utils": "^2.0.2",
     "vue": "^3.2.37"
+  },
+  "jest": {
+    "preset": "ts-jest",
+    "testEnvironment": "jsdom",
+    "testEnvironmentOptions": {
+      "customExportConditions": ["node", "node-addons"]
+   },
+    "setupFilesAfterEnv": [
+      "<rootDir>/setupTests.ts"
+    ],
+    "testPathIgnorePatterns": [
+      "node_modules",
+      "dist"
+    ],
+    "globals": {
+      "ts-jest": {
+        "diagnostics": {
+          "warnOnly": true
+        }
+      },
+      "window": {}
+    }
   }
 }
