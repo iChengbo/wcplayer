@@ -1,7 +1,7 @@
 {
   "name": "@wcplayer/components-react",
   "version": "0.0.4",
-  "description": "",
+  "description": "React specific wrapper for @wcplayer/components",
   "author": "iChengbo <https://github.com/iChengbo>",
   "license": "MIT",
   "publishConfig": {
@@ -14,7 +14,9 @@
     "dist/"
   ],
   "scripts": {
-    "build": "npm run tsc",
+    "build": "npm run clean && npm run compile",
+    "clean": "rimraf dist",
+    "compile": "npm run tsc",
     "tsc": "tsc -p ."
   },
   "dependencies": {
