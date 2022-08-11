@@ -1,0 +1,6 @@
+[build.environment]
+  NODE_VERSION = "16"
+  NPM_FLAGS = "--version" # prevent Netlify npm install
+[build]
+  publish = "demos/react-app/build"
+  command = "cd demos/react-app && npm install && npm run build"
