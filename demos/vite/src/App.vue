@@ -5,7 +5,7 @@ import { WcPlayer } from '@wcplayer/components-vue'
 </script>
 
 <template>
-  <div class="container" style="height: 720px;width: 1280px;">
+  <div class="container">
     <WcPlayer muted autoplay controls src="https://d2zihajmogu5jn.cloudfront.net/elephantsdream/ed_hd.mp4" />
   </div>
 </template>
