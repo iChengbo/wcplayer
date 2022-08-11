@@ -51,7 +51,7 @@ importers:
     specifiers:
       '@types/react': ^18.0.15
       '@types/react-dom': ^18.0.6
-      '@wcplayer/components': workspace:^0.0.5
+      '@wcplayer/components': workspace:*
       react: ^18.2.0
       react-dom: ^18.2.0
     dependencies:
@@ -65,7 +65,7 @@ importers:
   packages/wcplayer-components-vue:
     specifiers:
       '@vue/test-utils': ^2.0.2
-      '@wcplayer/components': workspace:^0.0.5
+      '@wcplayer/components': workspace:*
       vue: ^3.2.37
     dependencies:
       '@wcplayer/components': link:../wcplayer-components

@@ -1,6 +1,6 @@
 {
   "name": "@wcplayer/components-react",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "React specific wrapper for @wcplayer/components",
   "author": "iChengbo <https://github.com/iChengbo>",
   "license": "MIT",
@@ -20,7 +20,7 @@
     "tsc": "tsc -p ."
   },
   "dependencies": {
-    "@wcplayer/components": "workspace:^0.0.5"
+    "@wcplayer/components": "workspace:*"
   },
   "devDependencies": {
     "@types/react": "^18.0.15",
