@@ -11,6 +11,12 @@ button {
 
   height: 40px;
   width: 40px;
+  opacity: 0.8;
+}
+
+button:hover {
+  opacity: 1;
+  cursor: pointer;
 }
 
 svg {

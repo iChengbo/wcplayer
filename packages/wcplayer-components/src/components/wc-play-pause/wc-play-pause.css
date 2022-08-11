@@ -13,6 +13,13 @@
   padding: 0;
   border: 1px solid transparent;
   background: transparent;
+  opacity: 0.8;
+}
+
+.btn-pause:hover,
+.btn-play:hover {
+  opacity: 1;
+  cursor: pointer;
 }
 
 svg {
