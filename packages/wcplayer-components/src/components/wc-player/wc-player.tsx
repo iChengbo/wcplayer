@@ -1,6 +1,6 @@
 import { Component, Host, h, Prop, State, Watch, Element, Method } from '@stencil/core';
 import classNames from 'classnames';
-import { throttle } from 'src/utils/utils';
+import { throttle } from '../../utils/utils';
 
 @Component({
   tag: 'wc-player',
