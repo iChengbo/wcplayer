@@ -1,5 +1,6 @@
 import { Component, Host, h, Prop, State, Watch, Element, Method } from '@stencil/core';
 import classNames from 'classnames';
+import { throttle } from 'src/utils/utils';
 
 @Component({
   tag: 'wc-player',
@@ -19,9 +20,13 @@ export class WcPlayer {
 
   @State() _isMuted: boolean
   @State() _isPlaying: boolean
+  @State() _isEnded: boolean
   @State() _volume: number
   @State() _isPictureInPicture: boolean
   @State() _nativeVideo: HTMLVideoElement
+
+  @State() _currentTime = 0
+  @State() _duration = 0
 
   @Watch('muted')
   watchMutedHandler(muted: boolean) {
@@ -53,6 +58,23 @@ export class WcPlayer {
     this._isPlaying = false
   }
 
+  handleOnEnded = () => {
+    this._isPlaying = false
+    this._isEnded = true
+  }
+
+  handleTimeUpdate = throttle(() => {
+    this._currentTime = this._nativeVideo?.currentTime ?? 0
+  }, 250)
+
+  handleDurationChange = throttle(() => {
+    this._duration = this._nativeVideo?.duration ?? 0
+  }, 250)
+
+  handleOnSeek = (position: number) => {
+    this.wcVideoRef.seek(position)
+  }
+
   render() {
     const {
       src,
@@ -73,14 +95,23 @@ export class WcPlayer {
           muted={this._isMuted}
           controls={false}
           volume={this._volume}
+          onEnded={this.handleOnEnded}
+          onTimeupdate={this.handleTimeUpdate}
+          onDurationchange={this.handleDurationChange}
         ></wc-video>
         <wc-layers>
           <wc-play-pause-layer></wc-play-pause-layer>
         </wc-layers>
         {controls && (
           <wc-controls>
+            <wc-progress
+              currentTime={this._currentTime}
+              duration={this._duration}
+              seek={this.handleOnSeek}
+            ></wc-progress>
             <wc-play-pause
               isPlaying={this._isPlaying}
+              isEnded={this._isEnded}
               playFunc={this._play}
               pauseFunc={this._pause}
             ></wc-play-pause>

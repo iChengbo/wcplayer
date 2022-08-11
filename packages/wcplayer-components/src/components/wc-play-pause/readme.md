@@ -9,6 +9,7 @@
 
 | Property    | Attribute    | Description | Type         | Default     |
 | ----------- | ------------ | ----------- | ------------ | ----------- |
+| `isEnded`   | `is-ended`   |             | `boolean`    | `undefined` |
 | `isPlaying` | `is-playing` |             | `boolean`    | `undefined` |
 | `pauseFunc` | --           |             | `() => void` | `undefined` |
 | `playFunc`  | --           |             | `() => void` | `undefined` |

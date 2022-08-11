@@ -29,6 +29,7 @@ export const WcPictureInPicture = /*@__PURE__*/ defineContainer<JSX.WcPictureInP
 
 export const WcPlayPause = /*@__PURE__*/ defineContainer<JSX.WcPlayPause>('wc-play-pause', undefined, [
   'isPlaying',
+  'isEnded',
   'pauseFunc',
   'playFunc'
 ]);

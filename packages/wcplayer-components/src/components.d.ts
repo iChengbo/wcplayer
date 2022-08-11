@@ -19,6 +19,7 @@ export namespace Components {
         "nativeVideo": HTMLVideoElement;
     }
     interface WcPlayPause {
+        "isEnded": boolean;
         "isPlaying": boolean;
         "pauseFunc": () => void;
         "playFunc": () => void;
@@ -168,6 +169,7 @@ declare namespace LocalJSX {
         "nativeVideo"?: HTMLVideoElement;
     }
     interface WcPlayPause {
+        "isEnded"?: boolean;
         "isPlaying"?: boolean;
         "pauseFunc"?: () => void;
         "playFunc"?: () => void;

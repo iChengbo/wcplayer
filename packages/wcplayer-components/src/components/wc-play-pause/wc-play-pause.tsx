@@ -9,6 +9,7 @@ import classNames from 'classnames';
 export class WcPlayPause {
 
   @Prop() isPlaying: boolean
+  @Prop() isEnded: boolean
   @Prop() pauseFunc: () => void
   @Prop() playFunc: () => void
 

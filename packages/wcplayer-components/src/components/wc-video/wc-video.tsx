@@ -143,6 +143,7 @@ export class WcVideo {
           onCanPlay={this.handleCanPlay}
           onPlay={this.handlePlay}
           onPause={this.handlePause}
+          onEnded={this.handleEnded}
           onTimeUpdate={this.handleTimeUpdate}
           onDurationChange={this.handleDurationChange}
           onVolumeChange={this.handleVolumeChange}
