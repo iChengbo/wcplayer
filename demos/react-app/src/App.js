@@ -1,6 +1,6 @@
 import './App.css';
 
-import { WcPlayer } from '@wcplayer/components'
+import { WcPlayer } from '@wcplayer/components-react'
 
 function App() {
   return (
