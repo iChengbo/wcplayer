@@ -7,6 +7,8 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
     interface WcControls {
+        "currentTime": number;
+        "duration": number;
     }
     interface WcCoverLayer {
     }
@@ -36,7 +38,6 @@ export namespace Components {
     interface WcProgress {
         "currentTime": number;
         "duration": number;
-        "seek": (position: number) => void;
     }
     interface WcSpacer {
     }
@@ -62,6 +63,14 @@ export namespace Components {
         "isMuted": boolean;
         "mute": () => void;
     }
+}
+export interface WcControlsCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLWcControlsElement;
+}
+export interface WcProgressCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLWcProgressElement;
 }
 export interface WcVideoCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -157,6 +166,9 @@ declare global {
 }
 declare namespace LocalJSX {
     interface WcControls {
+        "currentTime"?: number;
+        "duration"?: number;
+        "onSeek"?: (event: WcControlsCustomEvent<any>) => void;
     }
     interface WcCoverLayer {
     }
@@ -185,7 +197,7 @@ declare namespace LocalJSX {
     interface WcProgress {
         "currentTime"?: number;
         "duration"?: number;
-        "seek"?: (position: number) => void;
+        "onSeek"?: (event: WcProgressCustomEvent<any>) => void;
     }
     interface WcSpacer {
     }

@@ -8,7 +8,11 @@ import type { JSX } from '@wcplayer/components';
 
 
 
-export const WcControls = /*@__PURE__*/ defineContainer<JSX.WcControls>('wc-controls', undefined);
+export const WcControls = /*@__PURE__*/ defineContainer<JSX.WcControls>('wc-controls', undefined, [
+  'currentTime',
+  'duration',
+  'seek'
+]);
 
 
 export const WcCoverLayer = /*@__PURE__*/ defineContainer<JSX.WcCoverLayer>('wc-cover-layer', undefined);

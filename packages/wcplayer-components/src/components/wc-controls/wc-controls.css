@@ -13,3 +13,8 @@
   align-items: center;
   justify-content: space-between;
 }
+
+wc-progress {
+  position: absolute;
+  top: -15px;
+}

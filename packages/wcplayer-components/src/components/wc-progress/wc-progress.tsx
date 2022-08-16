@@ -1,4 +1,4 @@
-import { Component, Host, h, Prop, State, Watch } from '@stencil/core';
+import { Component, Host, h, Prop, State, Watch, Event, EventEmitter } from '@stencil/core';
 import classNames from 'classnames';
 
 @Component({
@@ -12,11 +12,14 @@ export class WcProgress {
 
   @Prop() currentTime: number
   @Prop() duration: number
-  @Prop() seek: (position: number) => void
 
   @State() _currentTime: number
   @State() _duration: number
   @State() _currentValue: number
+
+  @Event({
+    eventName: 'seek'
+  }) onSeek: EventEmitter
 
   @Watch('currentTime')
   watchCurrentTimeHander() {
@@ -41,7 +44,7 @@ export class WcProgress {
 
   handleChangeValue = () => {
     const nextTime = Number(this.sliderRef.value)
-    this.seek(nextTime)
+    this.onSeek.emit(nextTime)
   }
 
   render() {

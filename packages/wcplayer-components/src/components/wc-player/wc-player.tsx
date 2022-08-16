@@ -71,7 +71,7 @@ export class WcPlayer {
     this._duration = this._nativeVideo?.duration ?? 0
   }, 250)
 
-  handleOnSeek = (position: number) => {
+  handleOnSeek = ({ detail: position }) => {
     this.wcVideoRef.seek(position)
   }
 
@@ -103,12 +103,11 @@ export class WcPlayer {
           <wc-play-pause-layer></wc-play-pause-layer>
         </wc-layers>
         {controls && (
-          <wc-controls>
-            <wc-progress
-              currentTime={this._currentTime}
-              duration={this._duration}
-              seek={this.handleOnSeek}
-            ></wc-progress>
+          <wc-controls
+            currentTime={this._currentTime}
+            duration={this._duration}
+            onSeek={this.handleOnSeek}
+          >
             <wc-play-pause
               isPlaying={this._isPlaying}
               isEnded={this._isEnded}

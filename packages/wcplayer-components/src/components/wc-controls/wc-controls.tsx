@@ -1,4 +1,4 @@
-import { Component, Host, h } from '@stencil/core';
+import { Component, Host, h, Prop, Event, EventEmitter } from '@stencil/core';
 
 @Component({
   tag: 'wc-controls',
@@ -7,23 +7,25 @@ import { Component, Host, h } from '@stencil/core';
 })
 export class WcControls {
 
-  // @Prop() isPlaying: boolean
-  // @Prop() pauseFunc: () => void
-  // @Prop() playFunc: () => void
+  @Prop() currentTime: number = 0
+  @Prop() duration: number = 0
+
+  @Event({
+    eventName: 'seek'
+  }) onSeek: EventEmitter
+
+  handleOnSeek = ({ detail: position }) => {
+    this.onSeek.emit(position)
+  }
 
   render() {
-    // const {
-    //   isPlaying,
-    //   pauseFunc,
-    //   playFunc,
-    // } = this
     return (
       <Host>
-        {/* <wc-play-pause
-          isPlaying={isPlaying}
-          playFunc={playFunc}
-          pauseFunc={pauseFunc}
-        ></wc-play-pause> */}
+        <wc-progress
+          currentTime={this.currentTime}
+          duration={this.duration}
+          onSeek={this.handleOnSeek}
+        ></wc-progress>
         <slot></slot>
       </Host>
     );
