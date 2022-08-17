@@ -5,6 +5,14 @@
 <!-- Auto Generated Below -->
 
 
+## Events
+
+| Event         | Description | Type               |
+| ------------- | ----------- | ------------------ |
+| `doubleClick` |             | `CustomEvent<any>` |
+| `singleClick` |             | `CustomEvent<any>` |
+
+
 ## Dependencies
 
 ### Used by

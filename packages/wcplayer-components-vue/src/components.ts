@@ -31,7 +31,10 @@ export const WcFullscreen = /*@__PURE__*/ defineContainer<JSX.WcFullscreen>('wc-
 ]);
 
 
-export const WcLayers = /*@__PURE__*/ defineContainer<JSX.WcLayers>('wc-layers', undefined);
+export const WcLayers = /*@__PURE__*/ defineContainer<JSX.WcLayers>('wc-layers', undefined, [
+  'singleClick',
+  'doubleClick'
+]);
 
 
 export const WcPictureInPicture = /*@__PURE__*/ defineContainer<JSX.WcPictureInPicture>('wc-picture-in-picture', undefined, [

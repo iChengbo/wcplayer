@@ -69,6 +69,10 @@ export interface WcControlsCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLWcControlsElement;
 }
+export interface WcLayersCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLWcLayersElement;
+}
 export interface WcProgressCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLWcProgressElement;
@@ -189,6 +193,8 @@ declare namespace LocalJSX {
         "ele"?: HTMLElement;
     }
     interface WcLayers {
+        "onDoubleClick"?: (event: WcLayersCustomEvent<any>) => void;
+        "onSingleClick"?: (event: WcLayersCustomEvent<any>) => void;
     }
     interface WcPictureInPicture {
         "nativeVideo"?: HTMLVideoElement;

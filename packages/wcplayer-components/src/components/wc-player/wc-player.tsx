@@ -122,7 +122,12 @@ export class WcPlayer {
           onTimeupdate={this.handleTimeUpdate}
           onDurationchange={this.handleDurationChange}
         ></wc-video>
-        <wc-layers></wc-layers>
+        <wc-layers
+          onSingleClick={this.handleOnClickPlayPause}
+          onDoubleClick={() => {
+            console.log('double click')
+          }}
+        ></wc-layers>
         {controls && (
           <wc-controls
             // wc-progress
