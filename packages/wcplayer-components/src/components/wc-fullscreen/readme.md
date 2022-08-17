@@ -16,12 +16,12 @@
 
 ### Used by
 
- - [wc-player](../wc-player)
+ - [wc-controls](../wc-controls)
 
 ### Graph
 ```mermaid
 graph TD;
-  wc-player --> wc-fullscreen
+  wc-controls --> wc-fullscreen
   style wc-fullscreen fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

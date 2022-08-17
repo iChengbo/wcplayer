@@ -15,6 +15,15 @@ export class WcControls {
   @Prop() pauseFunc: () => void
   @Prop() playFunc: () => void
 
+  @Prop() currentVolume: number
+  @Prop() isMuted: boolean
+  @Prop() mute: () => void
+  @Prop() cancelMute: () => void
+  @Prop() changeVolume: (volume: number) => void
+
+  @Prop() nativeVideo: HTMLVideoElement
+  @Prop() playerEle: HTMLElement
+
   @Event({
     eventName: 'seek'
   }) onSeek: EventEmitter
@@ -38,6 +47,11 @@ export class WcControls {
           pauseFunc={this.pauseFunc}
         ></wc-play-pause>
         <slot></slot>
+        <wc-spacer></wc-spacer>
+        <wc-picture-in-picture
+          nativeVideo={this.nativeVideo}
+        ></wc-picture-in-picture>
+        <wc-fullscreen ele={this.playerEle}></wc-fullscreen>
       </Host>
     );
   }

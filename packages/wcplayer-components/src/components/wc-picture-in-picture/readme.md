@@ -16,12 +16,12 @@
 
 ### Used by
 
- - [wc-player](../wc-player)
+ - [wc-controls](../wc-controls)
 
 ### Graph
 ```mermaid
 graph TD;
-  wc-player --> wc-picture-in-picture
+  wc-controls --> wc-picture-in-picture
   style wc-picture-in-picture fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

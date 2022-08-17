@@ -15,6 +15,13 @@ export const WcControls = /*@__PURE__*/ defineContainer<JSX.WcControls>('wc-cont
   'isEnded',
   'pauseFunc',
   'playFunc',
+  'currentVolume',
+  'isMuted',
+  'mute',
+  'cancelMute',
+  'changeVolume',
+  'nativeVideo',
+  'playerEle',
   'seek'
 ]);
 

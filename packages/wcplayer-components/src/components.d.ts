@@ -7,12 +7,19 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
     interface WcControls {
+        "cancelMute": () => void;
+        "changeVolume": (volume: number) => void;
         "currentTime": number;
+        "currentVolume": number;
         "duration": number;
         "isEnded": boolean;
+        "isMuted": boolean;
         "isPlaying": boolean;
+        "mute": () => void;
+        "nativeVideo": HTMLVideoElement;
         "pauseFunc": () => void;
         "playFunc": () => void;
+        "playerEle": HTMLElement;
     }
     interface WcCoverLayer {
     }
@@ -170,13 +177,20 @@ declare global {
 }
 declare namespace LocalJSX {
     interface WcControls {
+        "cancelMute"?: () => void;
+        "changeVolume"?: (volume: number) => void;
         "currentTime"?: number;
+        "currentVolume"?: number;
         "duration"?: number;
         "isEnded"?: boolean;
+        "isMuted"?: boolean;
         "isPlaying"?: boolean;
+        "mute"?: () => void;
+        "nativeVideo"?: HTMLVideoElement;
         "onSeek"?: (event: WcControlsCustomEvent<any>) => void;
         "pauseFunc"?: () => void;
         "playFunc"?: () => void;
+        "playerEle"?: HTMLElement;
     }
     interface WcCoverLayer {
     }

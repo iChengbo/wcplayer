@@ -113,6 +113,10 @@ export class WcPlayer {
             isEnded={this._isEnded}
             playFunc={this._play}
             pauseFunc={this._pause}
+            // wc-picture-in-picture
+            nativeVideo={this._nativeVideo}
+            // wc-fullscreen
+            playerEle={this.ele}
           >
             <wc-volume
               currentVolume={this._volume}
@@ -123,9 +127,6 @@ export class WcPlayer {
                 this._volume = volume
               }}
             ></wc-volume>
-            <wc-spacer></wc-spacer>
-            <wc-picture-in-picture nativeVideo={this._nativeVideo}></wc-picture-in-picture>
-            <wc-fullscreen ele={this.ele}></wc-fullscreen>
           </wc-controls>
         )}
       </Host>
