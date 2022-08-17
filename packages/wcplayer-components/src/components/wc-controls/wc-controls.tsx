@@ -46,16 +46,19 @@ export class WcControls {
           duration={this.duration}
           onSeek={this.handleOnSeek}
         ></wc-progress>
+        <slot name="before-left"/>
         <wc-play-pause
           status={this.videoStatus}
           onClick={this.handleOnClickPlayPause}
         ></wc-play-pause>
-        <slot></slot>
+        <slot name="after-left"/>
         <wc-spacer></wc-spacer>
+        <slot name="before-right"/>
         <wc-picture-in-picture
           nativeVideo={this.nativeVideo}
         ></wc-picture-in-picture>
         <wc-fullscreen ele={this.playerEle}></wc-fullscreen>
+        <slot name="after-right"/>
       </Host>
     );
   }

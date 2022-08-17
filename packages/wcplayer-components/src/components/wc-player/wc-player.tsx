@@ -127,6 +127,7 @@ export class WcPlayer {
             playerEle={this.ele}
           >
             <wc-volume
+              slot="after-left"
               currentVolume={this._volume}
               mute={() => this._isMuted = true}
               isMuted={this._isMuted}

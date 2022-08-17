@@ -9,7 +9,7 @@ import { VideoStatus } from '../../constants';
 })
 export class WcPlayPause {
 
-  @Prop() status: VideoStatus
+  @Prop() status: VideoStatus = VideoStatus.PAUSED
 
   render() {
 
