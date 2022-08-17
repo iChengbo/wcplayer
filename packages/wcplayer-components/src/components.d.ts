@@ -8,13 +8,10 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { VideoStatus } from "./constants";
 export namespace Components {
     interface WcControls {
-        "cancelMute": () => void;
-        "changeVolume": (volume: number) => void;
         "currentTime": number;
         "currentVolume": number;
         "duration": number;
         "isMuted": boolean;
-        "mute": () => void;
         "nativeVideo": HTMLVideoElement;
         "playerEle": HTMLElement;
         "videoStatus": VideoStatus;
@@ -63,11 +60,9 @@ export namespace Components {
         "volume": number;
     }
     interface WcVolume {
-        "cancelMute": () => void;
         "changeVolume": (volume: number) => void;
         "currentVolume": number;
         "isMuted": boolean;
-        "mute": () => void;
     }
 }
 export interface WcControlsCustomEvent<T> extends CustomEvent<T> {
@@ -81,6 +76,10 @@ export interface WcProgressCustomEvent<T> extends CustomEvent<T> {
 export interface WcVideoCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLWcVideoElement;
+}
+export interface WcVolumeCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLWcVolumeElement;
 }
 declare global {
     interface HTMLWcControlsElement extends Components.WcControls, HTMLStencilElement {
@@ -172,16 +171,15 @@ declare global {
 }
 declare namespace LocalJSX {
     interface WcControls {
-        "cancelMute"?: () => void;
-        "changeVolume"?: (volume: number) => void;
         "currentTime"?: number;
         "currentVolume"?: number;
         "duration"?: number;
         "isMuted"?: boolean;
-        "mute"?: () => void;
         "nativeVideo"?: HTMLVideoElement;
         "onClickPlayPause"?: (event: WcControlsCustomEvent<any>) => void;
+        "onClickVolumeButton"?: (event: WcControlsCustomEvent<any>) => void;
         "onSeek"?: (event: WcControlsCustomEvent<any>) => void;
+        "onVolumechange"?: (event: WcControlsCustomEvent<any>) => void;
         "playerEle"?: HTMLElement;
         "videoStatus"?: VideoStatus;
     }
@@ -231,11 +229,11 @@ declare namespace LocalJSX {
         "volume"?: number;
     }
     interface WcVolume {
-        "cancelMute"?: () => void;
         "changeVolume"?: (volume: number) => void;
         "currentVolume"?: number;
         "isMuted"?: boolean;
-        "mute"?: () => void;
+        "onClickVolumebutton"?: (event: WcVolumeCustomEvent<any>) => void;
+        "onVolumechange"?: (event: WcVolumeCustomEvent<any>) => void;
     }
     interface IntrinsicElements {
         "wc-controls": WcControls;

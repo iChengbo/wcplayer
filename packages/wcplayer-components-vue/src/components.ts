@@ -14,13 +14,12 @@ export const WcControls = /*@__PURE__*/ defineContainer<JSX.WcControls>('wc-cont
   'videoStatus',
   'currentVolume',
   'isMuted',
-  'mute',
-  'cancelMute',
-  'changeVolume',
   'nativeVideo',
   'playerEle',
   'seek',
-  'clickPlayPause'
+  'clickPlayPause',
+  'clickVolumeButton',
+  'volumechange'
 ]);
 
 
@@ -88,8 +87,8 @@ export const WcVideo = /*@__PURE__*/ defineContainer<JSX.WcVideo>('wc-video', un
 export const WcVolume = /*@__PURE__*/ defineContainer<JSX.WcVolume>('wc-volume', undefined, [
   'currentVolume',
   'isMuted',
-  'mute',
-  'cancelMute',
-  'changeVolume'
+  'changeVolume',
+  'clickVolumebutton',
+  'volumechange'
 ]);
 

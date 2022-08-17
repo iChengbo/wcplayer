@@ -85,6 +85,19 @@ export class WcPlayer {
     }
   }
 
+  handleOnClickVolumebutton = () => {
+    this._isMuted = !this._isMuted
+  }
+
+  handleOnVolumeChange = ({detail: volume}) => {
+    this._volume = volume
+    if (volume === 0) {
+      this._isMuted = true
+    } else {
+      this._isMuted = false
+    }
+  }
+
   render() {
     const {
       src,
@@ -121,21 +134,16 @@ export class WcPlayer {
             // wc-play-pause
             videoStatus={this.videoStatus}
             onClickPlayPause={this.handleOnClickPlayPause}
+            // wc-volume
+            currentVolume={this._volume}
+            isMuted={this._isMuted}
+            onClickVolumeButton={this.handleOnClickVolumebutton}
+            onVolumechange={this.handleOnVolumeChange}
             // wc-picture-in-picture
             nativeVideo={this._nativeVideo}
             // wc-fullscreen
             playerEle={this.ele}
           >
-            <wc-volume
-              slot="after-left"
-              currentVolume={this._volume}
-              mute={() => this._isMuted = true}
-              isMuted={this._isMuted}
-              cancelMute={() => this._isMuted = false}
-              changeVolume={(volume: number) => {
-                this._volume = volume
-              }}
-            ></wc-volume>
           </wc-controls>
         )}
       </Host>

@@ -1,4 +1,4 @@
-import { Component, Host, h, Prop, State, Watch } from '@stencil/core';
+import { Component, Host, h, Prop, State, Watch, Event, EventEmitter } from '@stencil/core';
 import classNames from 'classnames';
 
 @Component({
@@ -12,8 +12,6 @@ export class WcVolume {
 
   @Prop() currentVolume: number
   @Prop() isMuted: boolean
-  @Prop() mute: () => void
-  @Prop() cancelMute: () => void
   @Prop() changeVolume: (volume: number) => void
 
   @State() _volume: number
@@ -27,6 +25,14 @@ export class WcVolume {
     }
   }
 
+  @Event({
+    eventName: 'clickVolumebutton'
+  }) onClickVolumebutton: EventEmitter
+
+  @Event({
+    eventName: 'volumechange'
+  }) onVolumechange: EventEmitter
+
   componentWillLoad () {
     if (this.isMuted) {
       this._volume = 0
@@ -36,29 +42,18 @@ export class WcVolume {
   }
 
   handleChangeVolume = (newVolume: number) => {
-    if (newVolume === 0) {
-      this.mute()
-      return
-    }
-    if (this.isMuted) {
-      this.cancelMute()
-    }
     const volume = Math.round(Math.max(Math.min(1, newVolume), 0) * 10) / 10
-    this.changeVolume(volume)
+    this.onVolumechange.emit(volume)
   }
 
-  handleClickMute = () => {
-    if (this.isMuted) {
-      this.cancelMute()
-    } else {
-      this.mute()
-    }
+  handleClickVolumeButton = () => {
+    this.onClickVolumebutton.emit()
   }
 
   render() {
     return (
       <Host class={classNames('wc-volume')}>
-        <button onClick={this.handleClickMute}>
+        <button onClick={this.handleClickVolumeButton}>
           {this.isMuted ? (
             <svg xmlns="http://www.w3.org/2000/svg" width="24.485" height="23" viewBox="0 0 24.485 23"><g fill="#fff"><path data-name="矩形 15" d="M0 5.5h7v12H0z" /><path data-name="多边形 3" d="M.5 11.5L12.5 0v23z" /><g data-name="组 3"><path data-name="矩形 39" d="M23.071 7.257l1.414 1.414-7.07 7.071L16 14.328z" /><path data-name="矩形 40" d="M16 8.672l1.414-1.414 7.071 7.07-1.414 1.415z" /></g></g></svg>
           ) : (

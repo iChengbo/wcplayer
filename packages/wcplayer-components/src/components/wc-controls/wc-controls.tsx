@@ -15,9 +15,6 @@ export class WcControls {
 
   @Prop() currentVolume: number
   @Prop() isMuted: boolean
-  @Prop() mute: () => void
-  @Prop() cancelMute: () => void
-  @Prop() changeVolume: (volume: number) => void
 
   @Prop() nativeVideo: HTMLVideoElement
   @Prop() playerEle: HTMLElement
@@ -30,12 +27,27 @@ export class WcControls {
     eventName: 'clickPlayPause'
   }) onClickVideoStatus: EventEmitter
 
+  @Event({
+    eventName: 'clickVolumeButton'
+  }) onClickVolumeButton: EventEmitter
+
+  @Event({
+    eventName: 'volumechange'
+  }) onVolumechange: EventEmitter
+
   handleOnSeek = ({ detail: position }) => {
     this.onSeek.emit(position)
   }
 
   handleOnClickPlayPause = () => {
     this.onClickVideoStatus.emit()
+  }
+
+  handleOnClickVolumebutton = () => {
+    this.onClickVolumeButton.emit()
+  }
+  handleOnVolumeChange = () => {
+    this.onVolumechange.emit()
   }
 
   render() {
@@ -51,6 +63,13 @@ export class WcControls {
           status={this.videoStatus}
           onClick={this.handleOnClickPlayPause}
         ></wc-play-pause>
+        <wc-volume
+          slot="after-left"
+          currentVolume={this.currentVolume}
+          isMuted={this.isMuted}
+          onClickVolumebutton={this.handleOnClickVolumebutton}
+          onVolumechange={this.handleOnVolumeChange}
+        ></wc-volume>
         <slot name="after-left"/>
         <wc-spacer></wc-spacer>
         <slot name="before-right"/>

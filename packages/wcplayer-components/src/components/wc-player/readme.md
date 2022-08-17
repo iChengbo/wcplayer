@@ -36,7 +36,6 @@ Type: `Promise<HTMLVideoElement>`
 - [wc-layers](../wc-layers)
 - [wc-play-pause-layer](../wc-play-pause-layer)
 - [wc-controls](../wc-controls)
-- [wc-volume](../wc-volume)
 
 ### Graph
 ```mermaid
@@ -45,10 +44,10 @@ graph TD;
   wc-player --> wc-layers
   wc-player --> wc-play-pause-layer
   wc-player --> wc-controls
-  wc-player --> wc-volume
   wc-layers --> wc-play-pause-layer
   wc-controls --> wc-progress
   wc-controls --> wc-play-pause
+  wc-controls --> wc-volume
   wc-controls --> wc-spacer
   wc-controls --> wc-picture-in-picture
   wc-controls --> wc-fullscreen

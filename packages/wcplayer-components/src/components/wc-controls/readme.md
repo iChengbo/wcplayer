@@ -9,13 +9,10 @@
 
 | Property        | Attribute        | Description | Type                                                             | Default     |
 | --------------- | ---------------- | ----------- | ---------------------------------------------------------------- | ----------- |
-| `cancelMute`    | --               |             | `() => void`                                                     | `undefined` |
-| `changeVolume`  | --               |             | `(volume: number) => void`                                       | `undefined` |
 | `currentTime`   | `current-time`   |             | `number`                                                         | `0`         |
 | `currentVolume` | `current-volume` |             | `number`                                                         | `undefined` |
 | `duration`      | `duration`       |             | `number`                                                         | `0`         |
 | `isMuted`       | `is-muted`       |             | `boolean`                                                        | `undefined` |
-| `mute`          | --               |             | `() => void`                                                     | `undefined` |
 | `nativeVideo`   | --               |             | `HTMLVideoElement`                                               | `undefined` |
 | `playerEle`     | --               |             | `HTMLElement`                                                    | `undefined` |
 | `videoStatus`   | `video-status`   |             | `VideoStatus.ENDED \| VideoStatus.PAUSED \| VideoStatus.PLAYING` | `undefined` |
@@ -23,10 +20,12 @@
 
 ## Events
 
-| Event            | Description | Type               |
-| ---------------- | ----------- | ------------------ |
-| `clickPlayPause` |             | `CustomEvent<any>` |
-| `seek`           |             | `CustomEvent<any>` |
+| Event               | Description | Type               |
+| ------------------- | ----------- | ------------------ |
+| `clickPlayPause`    |             | `CustomEvent<any>` |
+| `clickVolumeButton` |             | `CustomEvent<any>` |
+| `seek`              |             | `CustomEvent<any>` |
+| `volumechange`      |             | `CustomEvent<any>` |
 
 
 ## Dependencies
@@ -39,6 +38,7 @@
 
 - [wc-progress](../wc-progress)
 - [wc-play-pause](../wc-play-pause)
+- [wc-volume](../wc-volume)
 - [wc-spacer](../wc-spacer)
 - [wc-picture-in-picture](../wc-picture-in-picture)
 - [wc-fullscreen](../wc-fullscreen)
@@ -48,6 +48,7 @@
 graph TD;
   wc-controls --> wc-progress
   wc-controls --> wc-play-pause
+  wc-controls --> wc-volume
   wc-controls --> wc-spacer
   wc-controls --> wc-picture-in-picture
   wc-controls --> wc-fullscreen
