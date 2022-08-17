@@ -9,9 +9,7 @@ export class WcPlayPauseLayer {
 
   render() {
     return (
-      <Host onClick={() => {
-        console.log(88888)
-      }}>
+      <Host>
         <slot></slot>
       </Host>
     );

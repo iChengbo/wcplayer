@@ -122,9 +122,7 @@ export class WcPlayer {
           onTimeupdate={this.handleTimeUpdate}
           onDurationchange={this.handleDurationChange}
         ></wc-video>
-        <wc-layers>
-          <wc-play-pause-layer></wc-play-pause-layer>
-        </wc-layers>
+        <wc-layers></wc-layers>
         {controls && (
           <wc-controls
             // wc-progress

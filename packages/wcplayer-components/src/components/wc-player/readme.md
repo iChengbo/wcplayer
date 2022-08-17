@@ -34,7 +34,6 @@ Type: `Promise<HTMLVideoElement>`
 
 - [wc-video](../wc-video)
 - [wc-layers](../wc-layers)
-- [wc-play-pause-layer](../wc-play-pause-layer)
 - [wc-controls](../wc-controls)
 
 ### Graph
@@ -42,7 +41,6 @@ Type: `Promise<HTMLVideoElement>`
 graph TD;
   wc-player --> wc-video
   wc-player --> wc-layers
-  wc-player --> wc-play-pause-layer
   wc-player --> wc-controls
   wc-layers --> wc-play-pause-layer
   wc-controls --> wc-progress

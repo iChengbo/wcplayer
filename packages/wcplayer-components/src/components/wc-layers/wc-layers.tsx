@@ -11,7 +11,11 @@ export class WcLayers {
   render() {
     return (
       <Host class={classNames('wc-layers')}>
-        <wc-play-pause-layer></wc-play-pause-layer>
+        <wc-play-pause-layer
+          onClick={() => {
+            console.log('click wc-play-pause-layer')
+          }}
+        ></wc-play-pause-layer>
       </Host>
     );
   }
