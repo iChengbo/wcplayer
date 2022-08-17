@@ -5,6 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
+import { VideoStatus } from "./constants";
 export namespace Components {
     interface WcControls {
         "cancelMute": () => void;
@@ -12,14 +13,11 @@ export namespace Components {
         "currentTime": number;
         "currentVolume": number;
         "duration": number;
-        "isEnded": boolean;
         "isMuted": boolean;
-        "isPlaying": boolean;
         "mute": () => void;
         "nativeVideo": HTMLVideoElement;
-        "pauseFunc": () => void;
-        "playFunc": () => void;
         "playerEle": HTMLElement;
+        "videoStatus": VideoStatus;
     }
     interface WcCoverLayer {
     }
@@ -32,10 +30,7 @@ export namespace Components {
         "nativeVideo": HTMLVideoElement;
     }
     interface WcPlayPause {
-        "isEnded": boolean;
-        "isPlaying": boolean;
-        "pauseFunc": () => void;
-        "playFunc": () => void;
+        "status": VideoStatus;
     }
     interface WcPlayPauseLayer {
     }
@@ -182,15 +177,13 @@ declare namespace LocalJSX {
         "currentTime"?: number;
         "currentVolume"?: number;
         "duration"?: number;
-        "isEnded"?: boolean;
         "isMuted"?: boolean;
-        "isPlaying"?: boolean;
         "mute"?: () => void;
         "nativeVideo"?: HTMLVideoElement;
+        "onClickPlayPause"?: (event: WcControlsCustomEvent<any>) => void;
         "onSeek"?: (event: WcControlsCustomEvent<any>) => void;
-        "pauseFunc"?: () => void;
-        "playFunc"?: () => void;
         "playerEle"?: HTMLElement;
+        "videoStatus"?: VideoStatus;
     }
     interface WcCoverLayer {
     }
@@ -203,10 +196,7 @@ declare namespace LocalJSX {
         "nativeVideo"?: HTMLVideoElement;
     }
     interface WcPlayPause {
-        "isEnded"?: boolean;
-        "isPlaying"?: boolean;
-        "pauseFunc"?: () => void;
-        "playFunc"?: () => void;
+        "status"?: VideoStatus;
     }
     interface WcPlayPauseLayer {
     }

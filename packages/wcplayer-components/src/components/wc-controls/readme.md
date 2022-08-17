@@ -7,28 +7,26 @@
 
 ## Properties
 
-| Property        | Attribute        | Description | Type                       | Default     |
-| --------------- | ---------------- | ----------- | -------------------------- | ----------- |
-| `cancelMute`    | --               |             | `() => void`               | `undefined` |
-| `changeVolume`  | --               |             | `(volume: number) => void` | `undefined` |
-| `currentTime`   | `current-time`   |             | `number`                   | `0`         |
-| `currentVolume` | `current-volume` |             | `number`                   | `undefined` |
-| `duration`      | `duration`       |             | `number`                   | `0`         |
-| `isEnded`       | `is-ended`       |             | `boolean`                  | `undefined` |
-| `isMuted`       | `is-muted`       |             | `boolean`                  | `undefined` |
-| `isPlaying`     | `is-playing`     |             | `boolean`                  | `undefined` |
-| `mute`          | --               |             | `() => void`               | `undefined` |
-| `nativeVideo`   | --               |             | `HTMLVideoElement`         | `undefined` |
-| `pauseFunc`     | --               |             | `() => void`               | `undefined` |
-| `playFunc`      | --               |             | `() => void`               | `undefined` |
-| `playerEle`     | --               |             | `HTMLElement`              | `undefined` |
+| Property        | Attribute        | Description | Type                                                             | Default     |
+| --------------- | ---------------- | ----------- | ---------------------------------------------------------------- | ----------- |
+| `cancelMute`    | --               |             | `() => void`                                                     | `undefined` |
+| `changeVolume`  | --               |             | `(volume: number) => void`                                       | `undefined` |
+| `currentTime`   | `current-time`   |             | `number`                                                         | `0`         |
+| `currentVolume` | `current-volume` |             | `number`                                                         | `undefined` |
+| `duration`      | `duration`       |             | `number`                                                         | `0`         |
+| `isMuted`       | `is-muted`       |             | `boolean`                                                        | `undefined` |
+| `mute`          | --               |             | `() => void`                                                     | `undefined` |
+| `nativeVideo`   | --               |             | `HTMLVideoElement`                                               | `undefined` |
+| `playerEle`     | --               |             | `HTMLElement`                                                    | `undefined` |
+| `videoStatus`   | `video-status`   |             | `VideoStatus.ENDED \| VideoStatus.PAUSED \| VideoStatus.PLAYING` | `undefined` |
 
 
 ## Events
 
-| Event  | Description | Type               |
-| ------ | ----------- | ------------------ |
-| `seek` |             | `CustomEvent<any>` |
+| Event            | Description | Type               |
+| ---------------- | ----------- | ------------------ |
+| `clickPlayPause` |             | `CustomEvent<any>` |
+| `seek`           |             | `CustomEvent<any>` |
 
 
 ## Dependencies

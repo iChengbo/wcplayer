@@ -11,10 +11,7 @@ import type { JSX } from '@wcplayer/components';
 export const WcControls = /*@__PURE__*/ defineContainer<JSX.WcControls>('wc-controls', undefined, [
   'currentTime',
   'duration',
-  'isPlaying',
-  'isEnded',
-  'pauseFunc',
-  'playFunc',
+  'videoStatus',
   'currentVolume',
   'isMuted',
   'mute',
@@ -22,7 +19,8 @@ export const WcControls = /*@__PURE__*/ defineContainer<JSX.WcControls>('wc-cont
   'changeVolume',
   'nativeVideo',
   'playerEle',
-  'seek'
+  'seek',
+  'clickPlayPause'
 ]);
 
 
@@ -43,10 +41,7 @@ export const WcPictureInPicture = /*@__PURE__*/ defineContainer<JSX.WcPictureInP
 
 
 export const WcPlayPause = /*@__PURE__*/ defineContainer<JSX.WcPlayPause>('wc-play-pause', undefined, [
-  'isPlaying',
-  'isEnded',
-  'pauseFunc',
-  'playFunc'
+  'status'
 ]);
 
 

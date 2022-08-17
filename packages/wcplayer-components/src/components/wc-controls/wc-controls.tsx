@@ -1,4 +1,5 @@
 import { Component, Host, h, Prop, Event, EventEmitter } from '@stencil/core';
+import { VideoStatus } from '../../constants';
 
 @Component({
   tag: 'wc-controls',
@@ -10,10 +11,7 @@ export class WcControls {
   @Prop() currentTime: number = 0
   @Prop() duration: number = 0
 
-  @Prop() isPlaying: boolean
-  @Prop() isEnded: boolean
-  @Prop() pauseFunc: () => void
-  @Prop() playFunc: () => void
+  @Prop() videoStatus: VideoStatus
 
   @Prop() currentVolume: number
   @Prop() isMuted: boolean
@@ -28,8 +26,16 @@ export class WcControls {
     eventName: 'seek'
   }) onSeek: EventEmitter
 
+  @Event({
+    eventName: 'clickPlayPause'
+  }) onClickVideoStatus: EventEmitter
+
   handleOnSeek = ({ detail: position }) => {
     this.onSeek.emit(position)
+  }
+
+  handleOnClickPlayPause = () => {
+    this.onClickVideoStatus.emit()
   }
 
   render() {
@@ -41,10 +47,8 @@ export class WcControls {
           onSeek={this.handleOnSeek}
         ></wc-progress>
         <wc-play-pause
-          isPlaying={this.isPlaying}
-          isEnded={this.isEnded}
-          playFunc={this.playFunc}
-          pauseFunc={this.pauseFunc}
+          status={this.videoStatus}
+          onClick={this.handleOnClickPlayPause}
         ></wc-play-pause>
         <slot></slot>
         <wc-spacer></wc-spacer>

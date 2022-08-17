@@ -1,5 +1,7 @@
 import { Component, Host, h, Prop, State, Watch, Element, Method } from '@stencil/core';
 import classNames from 'classnames';
+
+import { VideoStatus } from '../../constants';
 import { throttle } from '../../utils/utils';
 
 @Component({
@@ -18,9 +20,8 @@ export class WcPlayer {
   @Prop() autoplay = false
   @Prop() muted = false
 
+  @State() videoStatus: VideoStatus = VideoStatus.PAUSED
   @State() _isMuted: boolean
-  @State() _isPlaying: boolean
-  @State() _isEnded: boolean
   @State() _volume: number
   @State() _isPictureInPicture: boolean
   @State() _nativeVideo: HTMLVideoElement
@@ -33,14 +34,16 @@ export class WcPlayer {
     this._isMuted = muted
   }
 
-  @Method() async getNativeVideo () {
+  @Method() async getNativeVideo() {
     this._nativeVideo = await this.wcVideoRef.getNativeVideo()
     return this._nativeVideo
   }
 
   componentWillLoad() {
     this._isMuted = this.muted
-    this._isPlaying = this.autoplay && this.muted
+    if (this.autoplay && this.muted) {
+      this.videoStatus = VideoStatus.PLAYING
+    }
     this._volume = 0.5
   }
 
@@ -50,17 +53,16 @@ export class WcPlayer {
 
   _play = async () => {
     await this.wcVideoRef.play()
-    this._isPlaying = true
+    this.videoStatus = VideoStatus.PLAYING
   }
 
   _pause = async () => {
     await this.wcVideoRef.pause()
-    this._isPlaying = false
+    this.videoStatus = VideoStatus.PAUSED
   }
 
   handleOnEnded = () => {
-    this._isPlaying = false
-    this._isEnded = true
+    this.videoStatus = VideoStatus.ENDED
   }
 
   handleTimeUpdate = throttle(() => {
@@ -73,6 +75,14 @@ export class WcPlayer {
 
   handleOnSeek = ({ detail: position }) => {
     this.wcVideoRef.seek(position)
+  }
+
+  handleOnClickPlayPause = () => {
+    if (this.videoStatus === VideoStatus.PLAYING) {
+      this._pause()
+    } else {
+      this._play()
+    }
   }
 
   render() {
@@ -109,10 +119,8 @@ export class WcPlayer {
             duration={this._duration}
             onSeek={this.handleOnSeek}
             // wc-play-pause
-            isPlaying={this._isPlaying}
-            isEnded={this._isEnded}
-            playFunc={this._play}
-            pauseFunc={this._pause}
+            videoStatus={this.videoStatus}
+            onClickPlayPause={this.handleOnClickPlayPause}
             // wc-picture-in-picture
             nativeVideo={this._nativeVideo}
             // wc-fullscreen

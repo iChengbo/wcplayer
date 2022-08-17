@@ -7,12 +7,9 @@
 
 ## Properties
 
-| Property    | Attribute    | Description | Type         | Default     |
-| ----------- | ------------ | ----------- | ------------ | ----------- |
-| `isEnded`   | `is-ended`   |             | `boolean`    | `undefined` |
-| `isPlaying` | `is-playing` |             | `boolean`    | `undefined` |
-| `pauseFunc` | --           |             | `() => void` | `undefined` |
-| `playFunc`  | --           |             | `() => void` | `undefined` |
+| Property | Attribute | Description | Type                                                             | Default     |
+| -------- | --------- | ----------- | ---------------------------------------------------------------- | ----------- |
+| `status` | `status`  |             | `VideoStatus.ENDED \| VideoStatus.PAUSED \| VideoStatus.PLAYING` | `undefined` |
 
 
 ## Dependencies
