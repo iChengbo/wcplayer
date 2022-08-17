@@ -11,6 +11,10 @@ import type { JSX } from '@wcplayer/components';
 export const WcControls = /*@__PURE__*/ defineContainer<JSX.WcControls>('wc-controls', undefined, [
   'currentTime',
   'duration',
+  'isPlaying',
+  'isEnded',
+  'pauseFunc',
+  'playFunc',
   'seek'
 ]);
 

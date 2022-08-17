@@ -19,12 +19,12 @@
 
 ### Used by
 
- - [wc-player](../wc-player)
+ - [wc-controls](../wc-controls)
 
 ### Graph
 ```mermaid
 graph TD;
-  wc-player --> wc-play-pause
+  wc-controls --> wc-play-pause
   style wc-play-pause fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

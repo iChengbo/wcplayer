@@ -104,16 +104,16 @@ export class WcPlayer {
         </wc-layers>
         {controls && (
           <wc-controls
+            // wc-progress
             currentTime={this._currentTime}
             duration={this._duration}
             onSeek={this.handleOnSeek}
+            // wc-play-pause
+            isPlaying={this._isPlaying}
+            isEnded={this._isEnded}
+            playFunc={this._play}
+            pauseFunc={this._pause}
           >
-            <wc-play-pause
-              isPlaying={this._isPlaying}
-              isEnded={this._isEnded}
-              playFunc={this._play}
-              pauseFunc={this._pause}
-            ></wc-play-pause>
             <wc-volume
               currentVolume={this._volume}
               mute={() => this._isMuted = true}

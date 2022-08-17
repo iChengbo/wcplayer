@@ -9,6 +9,10 @@ export namespace Components {
     interface WcControls {
         "currentTime": number;
         "duration": number;
+        "isEnded": boolean;
+        "isPlaying": boolean;
+        "pauseFunc": () => void;
+        "playFunc": () => void;
     }
     interface WcCoverLayer {
     }
@@ -168,7 +172,11 @@ declare namespace LocalJSX {
     interface WcControls {
         "currentTime"?: number;
         "duration"?: number;
+        "isEnded"?: boolean;
+        "isPlaying"?: boolean;
         "onSeek"?: (event: WcControlsCustomEvent<any>) => void;
+        "pauseFunc"?: () => void;
+        "playFunc"?: () => void;
     }
     interface WcCoverLayer {
     }

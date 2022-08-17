@@ -36,7 +36,6 @@ Type: `Promise<HTMLVideoElement>`
 - [wc-layers](../wc-layers)
 - [wc-play-pause-layer](../wc-play-pause-layer)
 - [wc-controls](../wc-controls)
-- [wc-play-pause](../wc-play-pause)
 - [wc-volume](../wc-volume)
 - [wc-spacer](../wc-spacer)
 - [wc-picture-in-picture](../wc-picture-in-picture)
@@ -49,13 +48,13 @@ graph TD;
   wc-player --> wc-layers
   wc-player --> wc-play-pause-layer
   wc-player --> wc-controls
-  wc-player --> wc-play-pause
   wc-player --> wc-volume
   wc-player --> wc-spacer
   wc-player --> wc-picture-in-picture
   wc-player --> wc-fullscreen
   wc-layers --> wc-play-pause-layer
   wc-controls --> wc-progress
+  wc-controls --> wc-play-pause
   style wc-player fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
