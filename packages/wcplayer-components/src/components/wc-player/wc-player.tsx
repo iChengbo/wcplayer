@@ -145,7 +145,7 @@ export class WcPlayer {
             // wc-picture-in-picture
             nativeVideo={this._nativeVideo}
             // wc-fullscreen
-            playerEle={this.ele}
+            playerElement={this.ele}
           >
           </wc-controls>
         )}

@@ -13,13 +13,13 @@ export namespace Components {
         "duration": number;
         "isMuted": boolean;
         "nativeVideo": HTMLVideoElement;
-        "playerEle": HTMLElement;
+        "playerElement": HTMLElement;
         "videoStatus": VideoStatus;
     }
     interface WcCoverLayer {
     }
     interface WcFullscreen {
-        "ele": HTMLElement;
+        "element": HTMLElement;
     }
     interface WcLayers {
     }
@@ -184,13 +184,13 @@ declare namespace LocalJSX {
         "onClickVolumeButton"?: (event: WcControlsCustomEvent<any>) => void;
         "onSeek"?: (event: WcControlsCustomEvent<any>) => void;
         "onVolumechange"?: (event: WcControlsCustomEvent<any>) => void;
-        "playerEle"?: HTMLElement;
+        "playerElement"?: HTMLElement;
         "videoStatus"?: VideoStatus;
     }
     interface WcCoverLayer {
     }
     interface WcFullscreen {
-        "ele"?: HTMLElement;
+        "element"?: HTMLElement;
     }
     interface WcLayers {
         "onDoubleClick"?: (event: WcLayersCustomEvent<any>) => void;

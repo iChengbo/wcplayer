@@ -17,7 +17,7 @@ export class WcControls {
   @Prop() isMuted: boolean
 
   @Prop() nativeVideo: HTMLVideoElement
-  @Prop() playerEle: HTMLElement
+  @Prop() playerElement: HTMLElement
 
   @Event({
     eventName: 'seek'
@@ -76,7 +76,9 @@ export class WcControls {
         <wc-picture-in-picture
           nativeVideo={this.nativeVideo}
         ></wc-picture-in-picture>
-        <wc-fullscreen ele={this.playerEle}></wc-fullscreen>
+        <wc-fullscreen
+          element={this.playerElement}
+        ></wc-fullscreen>
         <slot name="after-right"/>
       </Host>
     );

@@ -7,7 +7,7 @@ import { Component, Host, h, Prop, State } from '@stencil/core';
 })
 export class WcFullscreen {
 
-  @Prop() ele: HTMLElement
+  @Prop() element: HTMLElement
 
   @State() isFullScreen: boolean
 
@@ -26,7 +26,7 @@ export class WcFullscreen {
     if (document.fullscreenElement) {
       await document.exitFullscreen()
     } else {
-      await this.ele.requestFullscreen()
+      await this.element.requestFullscreen()
     }
   }
 

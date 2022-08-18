@@ -15,7 +15,7 @@ export const WcControls = /*@__PURE__*/ defineContainer<JSX.WcControls>('wc-cont
   'currentVolume',
   'isMuted',
   'nativeVideo',
-  'playerEle',
+  'playerElement',
   'seek',
   'clickPlayPause',
   'clickVolumeButton',
@@ -27,7 +27,7 @@ export const WcCoverLayer = /*@__PURE__*/ defineContainer<JSX.WcCoverLayer>('wc-
 
 
 export const WcFullscreen = /*@__PURE__*/ defineContainer<JSX.WcFullscreen>('wc-fullscreen', undefined, [
-  'ele'
+  'element'
 ]);
 
 

@@ -14,7 +14,7 @@
 | `duration`      | `duration`       |             | `number`                                                         | `0`         |
 | `isMuted`       | `is-muted`       |             | `boolean`                                                        | `undefined` |
 | `nativeVideo`   | --               |             | `HTMLVideoElement`                                               | `undefined` |
-| `playerEle`     | --               |             | `HTMLElement`                                                    | `undefined` |
+| `playerElement` | --               |             | `HTMLElement`                                                    | `undefined` |
 | `videoStatus`   | `video-status`   |             | `VideoStatus.ENDED \| VideoStatus.PAUSED \| VideoStatus.PLAYING` | `undefined` |
 
 
