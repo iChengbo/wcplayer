@@ -16,12 +16,12 @@
 
 ### Used by
 
- - [wc-volume](../wc-volume)
+ - [wc-controls](../wc-controls)
 
 ### Graph
 ```mermaid
 graph TD;
-  wc-volume --> wc-mute-toggle
+  wc-controls --> wc-mute-toggle
   style wc-mute-toggle fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

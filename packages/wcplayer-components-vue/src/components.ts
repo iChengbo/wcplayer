@@ -96,7 +96,6 @@ export const WcVolume = /*@__PURE__*/ defineContainer<JSX.WcVolume>('wc-volume',
   'currentVolume',
   'isMuted',
   'changeVolume',
-  'clickMuteToggle',
   'volumechange'
 ]);
 

@@ -28,7 +28,7 @@ export class WcControls {
   }) onClickPlayToggle: EventEmitter
 
   @Event({
-    eventName: 'clickMuteToggle'
+    eventName: 'clickMuteToggle',
   }) onClickMuteToggle: EventEmitter
 
   @Event({
@@ -63,11 +63,13 @@ export class WcControls {
           status={this.videoStatus}
           onClick={this.handleClickPlayToggle}
         ></wc-play-toggle>
+        <wc-mute-toggle
+          isMuted={this.isMuted}
+          onClick={this.handleClickMuteToggle}
+        ></wc-mute-toggle>
         <wc-volume
-          slot="after-left"
           currentVolume={this.currentVolume}
           isMuted={this.isMuted}
-          onClickMuteToggle={this.handleClickMuteToggle}
           onVolumechange={this.handleOnVolumeChange}
         ></wc-volume>
         <slot name="after-left"/>

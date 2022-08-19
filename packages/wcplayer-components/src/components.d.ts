@@ -251,7 +251,6 @@ declare namespace LocalJSX {
         "changeVolume"?: (volume: number) => void;
         "currentVolume"?: number;
         "isMuted"?: boolean;
-        "onClickMuteToggle"?: (event: WcVolumeCustomEvent<any>) => void;
         "onVolumechange"?: (event: WcVolumeCustomEvent<any>) => void;
     }
     interface IntrinsicElements {

@@ -26,10 +26,6 @@ export class WcVolume {
   }
 
   @Event({
-    eventName: 'clickMuteToggle'
-  }) onClickMuteToggle: EventEmitter
-
-  @Event({
     eventName: 'volumechange'
   }) onVolumechange: EventEmitter
 
@@ -46,17 +42,9 @@ export class WcVolume {
     this.onVolumechange.emit(volume)
   }
 
-  handleClickMuteToggle = () => {
-    this.onClickMuteToggle.emit()
-  }
-
   render() {
     return (
       <Host class={classNames('wc-volume')}>
-        <wc-mute-toggle
-          isMuted={this.isMuted}
-          onClick={this.handleClickMuteToggle}
-        ></wc-mute-toggle>
         <div class={classNames('volume-slider')}>
           <input
             ref={(dom) => {

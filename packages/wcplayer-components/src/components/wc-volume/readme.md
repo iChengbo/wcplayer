@@ -16,10 +16,9 @@
 
 ## Events
 
-| Event             | Description | Type               |
-| ----------------- | ----------- | ------------------ |
-| `clickMuteToggle` |             | `CustomEvent<any>` |
-| `volumechange`    |             | `CustomEvent<any>` |
+| Event          | Description | Type               |
+| -------------- | ----------- | ------------------ |
+| `volumechange` |             | `CustomEvent<any>` |
 
 
 ## Dependencies
@@ -28,14 +27,9 @@
 
  - [wc-controls](../wc-controls)
 
-### Depends on
-
-- [wc-mute-toggle](../wc-mute-toggle)
-
 ### Graph
 ```mermaid
 graph TD;
-  wc-volume --> wc-mute-toggle
   wc-controls --> wc-volume
   style wc-volume fill:#f9f,stroke:#333,stroke-width:4px
 ```
