@@ -77,7 +77,7 @@ export class WcPlayer {
     this.wcVideoRef.seek(position)
   }
 
-  handleOnClickPlayPause = () => {
+  handleClickPlayToggle = () => {
     if (this.videoStatus === VideoStatus.PLAYING) {
       this._pause()
     } else {
@@ -123,7 +123,7 @@ export class WcPlayer {
           onDurationchange={this.handleDurationChange}
         ></wc-video>
         <wc-layers
-          onSingleClick={this.handleOnClickPlayPause}
+          onSingleClick={this.handleClickPlayToggle}
           onDoubleClick={() => {
             console.log('double click')
           }}
@@ -136,7 +136,7 @@ export class WcPlayer {
             onSeek={this.handleOnSeek}
             // wc-play-pause
             videoStatus={this.videoStatus}
-            onClickPlayPause={this.handleOnClickPlayPause}
+            onClickPlayToggle={this.handleClickPlayToggle}
             // wc-volume
             currentVolume={this._volume}
             isMuted={this._isMuted}

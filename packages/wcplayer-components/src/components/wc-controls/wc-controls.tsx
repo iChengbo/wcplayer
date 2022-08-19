@@ -24,8 +24,8 @@ export class WcControls {
   }) onSeek: EventEmitter
 
   @Event({
-    eventName: 'clickPlayPause'
-  }) onClickVideoStatus: EventEmitter
+    eventName: 'clickPlayToggle'
+  }) onClickPlayToggle: EventEmitter
 
   @Event({
     eventName: 'clickVolumeButton'
@@ -40,7 +40,7 @@ export class WcControls {
   }
 
   handleClickPlayToggle = () => {
-    this.onClickVideoStatus.emit()
+    this.onClickPlayToggle.emit()
   }
 
   handleOnClickVolumebutton = () => {

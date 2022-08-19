@@ -22,7 +22,7 @@
 
 | Event               | Description | Type               |
 | ------------------- | ----------- | ------------------ |
-| `clickPlayPause`    |             | `CustomEvent<any>` |
+| `clickPlayToggle`   |             | `CustomEvent<any>` |
 | `clickVolumeButton` |             | `CustomEvent<any>` |
 | `seek`              |             | `CustomEvent<any>` |
 | `volumechange`      |             | `CustomEvent<any>` |
