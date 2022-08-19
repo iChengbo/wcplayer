@@ -37,7 +37,7 @@ export const WcLayers = /*@__PURE__*/ defineContainer<JSX.WcLayers>('wc-layers',
 ]);
 
 
-export const WcPictureInPicture = /*@__PURE__*/ defineContainer<JSX.WcPictureInPicture>('wc-picture-in-picture', undefined, [
+export const WcPictureInPictureToggle = /*@__PURE__*/ defineContainer<JSX.WcPictureInPictureToggle>('wc-picture-in-picture-toggle', undefined, [
   'nativeVideo'
 ]);
 

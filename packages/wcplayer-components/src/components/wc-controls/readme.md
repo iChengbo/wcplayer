@@ -40,7 +40,7 @@
 - [wc-play-toggle](../wc-play-toggle)
 - [wc-volume](../wc-volume)
 - [wc-spacer](../wc-spacer)
-- [wc-picture-in-picture](../wc-picture-in-picture)
+- [wc-picture-in-picture-toggle](../wc-picture-in-picture-toggle)
 - [wc-fullscreen-toggle](../wc-fullscreen-toggle)
 
 ### Graph
@@ -50,7 +50,7 @@ graph TD;
   wc-controls --> wc-play-toggle
   wc-controls --> wc-volume
   wc-controls --> wc-spacer
-  wc-controls --> wc-picture-in-picture
+  wc-controls --> wc-picture-in-picture-toggle
   wc-controls --> wc-fullscreen-toggle
   wc-player --> wc-controls
   style wc-controls fill:#f9f,stroke:#333,stroke-width:4px

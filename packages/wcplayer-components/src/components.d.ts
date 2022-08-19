@@ -23,7 +23,7 @@ export namespace Components {
     }
     interface WcLayers {
     }
-    interface WcPictureInPicture {
+    interface WcPictureInPictureToggle {
         "nativeVideo": HTMLVideoElement;
     }
     interface WcPlayPauseLayer {
@@ -110,11 +110,11 @@ declare global {
         prototype: HTMLWcLayersElement;
         new (): HTMLWcLayersElement;
     };
-    interface HTMLWcPictureInPictureElement extends Components.WcPictureInPicture, HTMLStencilElement {
+    interface HTMLWcPictureInPictureToggleElement extends Components.WcPictureInPictureToggle, HTMLStencilElement {
     }
-    var HTMLWcPictureInPictureElement: {
-        prototype: HTMLWcPictureInPictureElement;
-        new (): HTMLWcPictureInPictureElement;
+    var HTMLWcPictureInPictureToggleElement: {
+        prototype: HTMLWcPictureInPictureToggleElement;
+        new (): HTMLWcPictureInPictureToggleElement;
     };
     interface HTMLWcPlayPauseLayerElement extends Components.WcPlayPauseLayer, HTMLStencilElement {
     }
@@ -163,7 +163,7 @@ declare global {
         "wc-cover-layer": HTMLWcCoverLayerElement;
         "wc-fullscreen-toggle": HTMLWcFullscreenToggleElement;
         "wc-layers": HTMLWcLayersElement;
-        "wc-picture-in-picture": HTMLWcPictureInPictureElement;
+        "wc-picture-in-picture-toggle": HTMLWcPictureInPictureToggleElement;
         "wc-play-pause-layer": HTMLWcPlayPauseLayerElement;
         "wc-play-toggle": HTMLWcPlayToggleElement;
         "wc-player": HTMLWcPlayerElement;
@@ -196,7 +196,7 @@ declare namespace LocalJSX {
         "onDoubleClick"?: (event: WcLayersCustomEvent<any>) => void;
         "onSingleClick"?: (event: WcLayersCustomEvent<any>) => void;
     }
-    interface WcPictureInPicture {
+    interface WcPictureInPictureToggle {
         "nativeVideo"?: HTMLVideoElement;
     }
     interface WcPlayPauseLayer {
@@ -246,7 +246,7 @@ declare namespace LocalJSX {
         "wc-cover-layer": WcCoverLayer;
         "wc-fullscreen-toggle": WcFullscreenToggle;
         "wc-layers": WcLayers;
-        "wc-picture-in-picture": WcPictureInPicture;
+        "wc-picture-in-picture-toggle": WcPictureInPictureToggle;
         "wc-play-pause-layer": WcPlayPauseLayer;
         "wc-play-toggle": WcPlayToggle;
         "wc-player": WcPlayer;
@@ -264,7 +264,7 @@ declare module "@stencil/core" {
             "wc-cover-layer": LocalJSX.WcCoverLayer & JSXBase.HTMLAttributes<HTMLWcCoverLayerElement>;
             "wc-fullscreen-toggle": LocalJSX.WcFullscreenToggle & JSXBase.HTMLAttributes<HTMLWcFullscreenToggleElement>;
             "wc-layers": LocalJSX.WcLayers & JSXBase.HTMLAttributes<HTMLWcLayersElement>;
-            "wc-picture-in-picture": LocalJSX.WcPictureInPicture & JSXBase.HTMLAttributes<HTMLWcPictureInPictureElement>;
+            "wc-picture-in-picture-toggle": LocalJSX.WcPictureInPictureToggle & JSXBase.HTMLAttributes<HTMLWcPictureInPictureToggleElement>;
             "wc-play-pause-layer": LocalJSX.WcPlayPauseLayer & JSXBase.HTMLAttributes<HTMLWcPlayPauseLayerElement>;
             "wc-play-toggle": LocalJSX.WcPlayToggle & JSXBase.HTMLAttributes<HTMLWcPlayToggleElement>;
             "wc-player": LocalJSX.WcPlayer & JSXBase.HTMLAttributes<HTMLWcPlayerElement>;

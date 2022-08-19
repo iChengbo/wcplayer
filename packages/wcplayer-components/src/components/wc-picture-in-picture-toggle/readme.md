@@ -21,8 +21,8 @@
 ### Graph
 ```mermaid
 graph TD;
-  wc-controls --> wc-picture-in-picture
-  style wc-picture-in-picture fill:#f9f,stroke:#333,stroke-width:4px
+  wc-controls --> wc-picture-in-picture-toggle
+  style wc-picture-in-picture-toggle fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
 ----------------------------------------------

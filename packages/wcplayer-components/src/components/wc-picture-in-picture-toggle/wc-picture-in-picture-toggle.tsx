@@ -1,11 +1,11 @@
 import { Component, Host, h, Prop } from '@stencil/core';
 
 @Component({
-  tag: 'wc-picture-in-picture',
-  styleUrl: 'wc-picture-in-picture.css',
+  tag: 'wc-picture-in-picture-toggle',
+  styleUrl: 'wc-picture-in-picture-toggle.css',
   shadow: true,
 })
-export class WcPictureInPicture {
+export class WcPictureInPictureToggle {
 
   @Prop() nativeVideo: HTMLVideoElement
 
