@@ -23,6 +23,9 @@ export namespace Components {
     }
     interface WcLayers {
     }
+    interface WcMuteToggle {
+        "isMuted": boolean;
+    }
     interface WcPictureInPictureToggle {
         "nativeVideo": HTMLVideoElement;
     }
@@ -110,6 +113,12 @@ declare global {
         prototype: HTMLWcLayersElement;
         new (): HTMLWcLayersElement;
     };
+    interface HTMLWcMuteToggleElement extends Components.WcMuteToggle, HTMLStencilElement {
+    }
+    var HTMLWcMuteToggleElement: {
+        prototype: HTMLWcMuteToggleElement;
+        new (): HTMLWcMuteToggleElement;
+    };
     interface HTMLWcPictureInPictureToggleElement extends Components.WcPictureInPictureToggle, HTMLStencilElement {
     }
     var HTMLWcPictureInPictureToggleElement: {
@@ -163,6 +172,7 @@ declare global {
         "wc-cover-layer": HTMLWcCoverLayerElement;
         "wc-fullscreen-toggle": HTMLWcFullscreenToggleElement;
         "wc-layers": HTMLWcLayersElement;
+        "wc-mute-toggle": HTMLWcMuteToggleElement;
         "wc-picture-in-picture-toggle": HTMLWcPictureInPictureToggleElement;
         "wc-play-pause-layer": HTMLWcPlayPauseLayerElement;
         "wc-play-toggle": HTMLWcPlayToggleElement;
@@ -180,8 +190,8 @@ declare namespace LocalJSX {
         "duration"?: number;
         "isMuted"?: boolean;
         "nativeVideo"?: HTMLVideoElement;
+        "onClickMuteToggle"?: (event: WcControlsCustomEvent<any>) => void;
         "onClickPlayToggle"?: (event: WcControlsCustomEvent<any>) => void;
-        "onClickVolumeButton"?: (event: WcControlsCustomEvent<any>) => void;
         "onSeek"?: (event: WcControlsCustomEvent<any>) => void;
         "onVolumechange"?: (event: WcControlsCustomEvent<any>) => void;
         "playerElement"?: HTMLElement;
@@ -195,6 +205,9 @@ declare namespace LocalJSX {
     interface WcLayers {
         "onDoubleClick"?: (event: WcLayersCustomEvent<any>) => void;
         "onSingleClick"?: (event: WcLayersCustomEvent<any>) => void;
+    }
+    interface WcMuteToggle {
+        "isMuted"?: boolean;
     }
     interface WcPictureInPictureToggle {
         "nativeVideo"?: HTMLVideoElement;
@@ -238,7 +251,7 @@ declare namespace LocalJSX {
         "changeVolume"?: (volume: number) => void;
         "currentVolume"?: number;
         "isMuted"?: boolean;
-        "onClickVolumebutton"?: (event: WcVolumeCustomEvent<any>) => void;
+        "onClickMuteToggle"?: (event: WcVolumeCustomEvent<any>) => void;
         "onVolumechange"?: (event: WcVolumeCustomEvent<any>) => void;
     }
     interface IntrinsicElements {
@@ -246,6 +259,7 @@ declare namespace LocalJSX {
         "wc-cover-layer": WcCoverLayer;
         "wc-fullscreen-toggle": WcFullscreenToggle;
         "wc-layers": WcLayers;
+        "wc-mute-toggle": WcMuteToggle;
         "wc-picture-in-picture-toggle": WcPictureInPictureToggle;
         "wc-play-pause-layer": WcPlayPauseLayer;
         "wc-play-toggle": WcPlayToggle;
@@ -264,6 +278,7 @@ declare module "@stencil/core" {
             "wc-cover-layer": LocalJSX.WcCoverLayer & JSXBase.HTMLAttributes<HTMLWcCoverLayerElement>;
             "wc-fullscreen-toggle": LocalJSX.WcFullscreenToggle & JSXBase.HTMLAttributes<HTMLWcFullscreenToggleElement>;
             "wc-layers": LocalJSX.WcLayers & JSXBase.HTMLAttributes<HTMLWcLayersElement>;
+            "wc-mute-toggle": LocalJSX.WcMuteToggle & JSXBase.HTMLAttributes<HTMLWcMuteToggleElement>;
             "wc-picture-in-picture-toggle": LocalJSX.WcPictureInPictureToggle & JSXBase.HTMLAttributes<HTMLWcPictureInPictureToggleElement>;
             "wc-play-pause-layer": LocalJSX.WcPlayPauseLayer & JSXBase.HTMLAttributes<HTMLWcPlayPauseLayerElement>;
             "wc-play-toggle": LocalJSX.WcPlayToggle & JSXBase.HTMLAttributes<HTMLWcPlayToggleElement>;

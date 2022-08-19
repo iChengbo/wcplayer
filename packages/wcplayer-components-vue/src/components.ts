@@ -18,7 +18,7 @@ export const WcControls = /*@__PURE__*/ defineContainer<JSX.WcControls>('wc-cont
   'playerElement',
   'seek',
   'clickPlayToggle',
-  'clickVolumeButton',
+  'clickMuteToggle',
   'volumechange'
 ]);
 
@@ -34,6 +34,11 @@ export const WcFullscreenToggle = /*@__PURE__*/ defineContainer<JSX.WcFullscreen
 export const WcLayers = /*@__PURE__*/ defineContainer<JSX.WcLayers>('wc-layers', undefined, [
   'singleClick',
   'doubleClick'
+]);
+
+
+export const WcMuteToggle = /*@__PURE__*/ defineContainer<JSX.WcMuteToggle>('wc-mute-toggle', undefined, [
+  'isMuted'
 ]);
 
 
@@ -91,7 +96,7 @@ export const WcVolume = /*@__PURE__*/ defineContainer<JSX.WcVolume>('wc-volume',
   'currentVolume',
   'isMuted',
   'changeVolume',
-  'clickVolumebutton',
+  'clickMuteToggle',
   'volumechange'
 ]);
 

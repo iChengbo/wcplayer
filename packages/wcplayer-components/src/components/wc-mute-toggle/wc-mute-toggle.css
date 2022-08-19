@@ -1,0 +1,23 @@
+:host {
+  display: block;
+}
+
+button {
+  outline: none;
+  margin: 0;
+  padding: 0;
+  border: 1px solid transparent;
+  background: transparent;
+
+  height: 30px;
+  width: 30px;
+  margin: 5px;
+  opacity: 0.8;
+}
+button:hover {
+  opacity: 1;
+  cursor: pointer;
+}
+svg {
+  width: 20px;
+}

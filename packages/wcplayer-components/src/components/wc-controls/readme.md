@@ -20,12 +20,12 @@
 
 ## Events
 
-| Event               | Description | Type               |
-| ------------------- | ----------- | ------------------ |
-| `clickPlayToggle`   |             | `CustomEvent<any>` |
-| `clickVolumeButton` |             | `CustomEvent<any>` |
-| `seek`              |             | `CustomEvent<any>` |
-| `volumechange`      |             | `CustomEvent<any>` |
+| Event             | Description | Type               |
+| ----------------- | ----------- | ------------------ |
+| `clickMuteToggle` |             | `CustomEvent<any>` |
+| `clickPlayToggle` |             | `CustomEvent<any>` |
+| `seek`            |             | `CustomEvent<any>` |
+| `volumechange`    |             | `CustomEvent<any>` |
 
 
 ## Dependencies
@@ -52,6 +52,7 @@ graph TD;
   wc-controls --> wc-spacer
   wc-controls --> wc-picture-in-picture-toggle
   wc-controls --> wc-fullscreen-toggle
+  wc-volume --> wc-mute-toggle
   wc-player --> wc-controls
   style wc-controls fill:#f9f,stroke:#333,stroke-width:4px
 ```

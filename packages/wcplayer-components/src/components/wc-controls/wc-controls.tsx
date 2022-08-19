@@ -28,8 +28,8 @@ export class WcControls {
   }) onClickPlayToggle: EventEmitter
 
   @Event({
-    eventName: 'clickVolumeButton'
-  }) onClickVolumeButton: EventEmitter
+    eventName: 'clickMuteToggle'
+  }) onClickMuteToggle: EventEmitter
 
   @Event({
     eventName: 'volumechange'
@@ -43,8 +43,8 @@ export class WcControls {
     this.onClickPlayToggle.emit()
   }
 
-  handleOnClickVolumebutton = () => {
-    this.onClickVolumeButton.emit()
+  handleClickMuteToggle = () => {
+    this.onClickMuteToggle.emit()
   }
   handleOnVolumeChange = () => {
     this.onVolumechange.emit()
@@ -67,7 +67,7 @@ export class WcControls {
           slot="after-left"
           currentVolume={this.currentVolume}
           isMuted={this.isMuted}
-          onClickVolumebutton={this.handleOnClickVolumebutton}
+          onClickMuteToggle={this.handleClickMuteToggle}
           onVolumechange={this.handleOnVolumeChange}
         ></wc-volume>
         <slot name="after-left"/>

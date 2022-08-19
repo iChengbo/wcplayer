@@ -12,6 +12,7 @@ export const WcControls = /*@__PURE__*/createReactComponent<JSX.WcControls, HTML
 export const WcCoverLayer = /*@__PURE__*/createReactComponent<JSX.WcCoverLayer, HTMLWcCoverLayerElement>('wc-cover-layer');
 export const WcFullscreenToggle = /*@__PURE__*/createReactComponent<JSX.WcFullscreenToggle, HTMLWcFullscreenToggleElement>('wc-fullscreen-toggle');
 export const WcLayers = /*@__PURE__*/createReactComponent<JSX.WcLayers, HTMLWcLayersElement>('wc-layers');
+export const WcMuteToggle = /*@__PURE__*/createReactComponent<JSX.WcMuteToggle, HTMLWcMuteToggleElement>('wc-mute-toggle');
 export const WcPictureInPictureToggle = /*@__PURE__*/createReactComponent<JSX.WcPictureInPictureToggle, HTMLWcPictureInPictureToggleElement>('wc-picture-in-picture-toggle');
 export const WcPlayPauseLayer = /*@__PURE__*/createReactComponent<JSX.WcPlayPauseLayer, HTMLWcPlayPauseLayerElement>('wc-play-pause-layer');
 export const WcPlayToggle = /*@__PURE__*/createReactComponent<JSX.WcPlayToggle, HTMLWcPlayToggleElement>('wc-play-toggle');

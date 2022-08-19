@@ -85,7 +85,7 @@ export class WcPlayer {
     }
   }
 
-  handleOnClickVolumebutton = () => {
+  handleClickMuteToggle = () => {
     this._isMuted = !this._isMuted
   }
 
@@ -140,7 +140,7 @@ export class WcPlayer {
             // wc-volume
             currentVolume={this._volume}
             isMuted={this._isMuted}
-            onClickVolumeButton={this.handleOnClickVolumebutton}
+            onClickMuteToggle={this.handleClickMuteToggle}
             onVolumechange={this.handleOnVolumeChange}
             // wc-picture-in-picture
             nativeVideo={this._nativeVideo}
