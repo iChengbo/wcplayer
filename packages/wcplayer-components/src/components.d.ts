@@ -19,7 +19,7 @@ export namespace Components {
     interface WcCoverLayer {
     }
     interface WcFullscreen {
-        "element": HTMLElement;
+        "target": HTMLElement;
     }
     interface WcLayers {
     }
@@ -190,7 +190,7 @@ declare namespace LocalJSX {
     interface WcCoverLayer {
     }
     interface WcFullscreen {
-        "element"?: HTMLElement;
+        "target"?: HTMLElement;
     }
     interface WcLayers {
         "onDoubleClick"?: (event: WcLayersCustomEvent<any>) => void;

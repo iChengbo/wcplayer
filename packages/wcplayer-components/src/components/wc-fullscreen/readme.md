@@ -7,9 +7,9 @@
 
 ## Properties
 
-| Property  | Attribute | Description | Type          | Default     |
-| --------- | --------- | ----------- | ------------- | ----------- |
-| `element` | --        |             | `HTMLElement` | `undefined` |
+| Property | Attribute | Description | Type          | Default     |
+| -------- | --------- | ----------- | ------------- | ----------- |
+| `target` | --        |             | `HTMLElement` | `undefined` |
 
 
 ## Dependencies

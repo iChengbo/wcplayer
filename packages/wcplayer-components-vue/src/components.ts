@@ -27,7 +27,7 @@ export const WcCoverLayer = /*@__PURE__*/ defineContainer<JSX.WcCoverLayer>('wc-
 
 
 export const WcFullscreen = /*@__PURE__*/ defineContainer<JSX.WcFullscreen>('wc-fullscreen', undefined, [
-  'element'
+  'target'
 ]);
 
 
