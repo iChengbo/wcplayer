@@ -37,7 +37,7 @@
 ### Depends on
 
 - [wc-progress](../wc-progress)
-- [wc-play-pause](../wc-play-pause)
+- [wc-play-toggle](../wc-play-toggle)
 - [wc-volume](../wc-volume)
 - [wc-spacer](../wc-spacer)
 - [wc-picture-in-picture](../wc-picture-in-picture)
@@ -47,7 +47,7 @@
 ```mermaid
 graph TD;
   wc-controls --> wc-progress
-  wc-controls --> wc-play-pause
+  wc-controls --> wc-play-toggle
   wc-controls --> wc-volume
   wc-controls --> wc-spacer
   wc-controls --> wc-picture-in-picture

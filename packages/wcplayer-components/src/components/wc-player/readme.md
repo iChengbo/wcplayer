@@ -44,7 +44,7 @@ graph TD;
   wc-player --> wc-controls
   wc-layers --> wc-play-pause-layer
   wc-controls --> wc-progress
-  wc-controls --> wc-play-pause
+  wc-controls --> wc-play-toggle
   wc-controls --> wc-volume
   wc-controls --> wc-spacer
   wc-controls --> wc-picture-in-picture

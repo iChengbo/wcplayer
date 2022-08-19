@@ -42,12 +42,12 @@ export const WcPictureInPicture = /*@__PURE__*/ defineContainer<JSX.WcPictureInP
 ]);
 
 
-export const WcPlayPause = /*@__PURE__*/ defineContainer<JSX.WcPlayPause>('wc-play-pause', undefined, [
+export const WcPlayPauseLayer = /*@__PURE__*/ defineContainer<JSX.WcPlayPauseLayer>('wc-play-pause-layer', undefined);
+
+
+export const WcPlayToggle = /*@__PURE__*/ defineContainer<JSX.WcPlayToggle>('wc-play-toggle', undefined, [
   'status'
 ]);
-
-
-export const WcPlayPauseLayer = /*@__PURE__*/ defineContainer<JSX.WcPlayPauseLayer>('wc-play-pause-layer', undefined);
 
 
 export const WcPlayer = /*@__PURE__*/ defineContainer<JSX.WcPlayer>('wc-player', undefined, [

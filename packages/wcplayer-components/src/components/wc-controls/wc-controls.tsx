@@ -39,7 +39,7 @@ export class WcControls {
     this.onSeek.emit(position)
   }
 
-  handleOnClickPlayPause = () => {
+  handleClickPlayToggle = () => {
     this.onClickVideoStatus.emit()
   }
 
@@ -59,10 +59,10 @@ export class WcControls {
           onSeek={this.handleOnSeek}
         ></wc-progress>
         <slot name="before-left"/>
-        <wc-play-pause
+        <wc-play-toggle
           status={this.videoStatus}
-          onClick={this.handleOnClickPlayPause}
-        ></wc-play-pause>
+          onClick={this.handleClickPlayToggle}
+        ></wc-play-toggle>
         <wc-volume
           slot="after-left"
           currentVolume={this.currentVolume}

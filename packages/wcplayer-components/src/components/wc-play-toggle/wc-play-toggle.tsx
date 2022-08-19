@@ -3,8 +3,8 @@ import classNames from 'classnames';
 import { VideoStatus } from '../../constants';
 
 @Component({
-  tag: 'wc-play-pause',
-  styleUrl: 'wc-play-pause.css',
+  tag: 'wc-play-toggle',
+  styleUrl: 'wc-play-toggle.css',
   shadow: true,
 })
 export class WcPlayPause {
@@ -14,7 +14,7 @@ export class WcPlayPause {
   render() {
 
     return (
-      <Host class={classNames('wc-play-pause')}>
+      <Host class={classNames('wc-play-toggle')}>
         {this.status === VideoStatus.PLAYING ? (
           <button
             class={classNames('btn-pause')}

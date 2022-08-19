@@ -21,8 +21,8 @@
 ### Graph
 ```mermaid
 graph TD;
-  wc-controls --> wc-play-pause
-  style wc-play-pause fill:#f9f,stroke:#333,stroke-width:4px
+  wc-controls --> wc-play-toggle
+  style wc-play-toggle fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
 ----------------------------------------------

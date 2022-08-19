@@ -1,18 +1,18 @@
 import { newSpecPage } from '@stencil/core/testing';
-import { WcPlayPause } from '../wc-play-pause';
+import { WcPlayPause } from '../wc-play-toggle';
 
-describe('wc-play-pause', () => {
+describe('wc-play-toggle', () => {
   it('renders', async () => {
     const page = await newSpecPage({
       components: [WcPlayPause],
-      html: `<wc-play-pause></wc-play-pause>`,
+      html: `<wc-play-toggle></wc-play-toggle>`,
     });
     expect(page.root).toEqualHtml(`
-      <wc-play-pause>
+      <wc-play-toggle>
         <mock:shadow-root>
           <slot></slot>
         </mock:shadow-root>
-      </wc-play-pause>
+      </wc-play-toggle>
     `);
   });
 });

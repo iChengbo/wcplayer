@@ -26,10 +26,10 @@ export namespace Components {
     interface WcPictureInPicture {
         "nativeVideo": HTMLVideoElement;
     }
-    interface WcPlayPause {
-        "status": VideoStatus;
-    }
     interface WcPlayPauseLayer {
+    }
+    interface WcPlayToggle {
+        "status": VideoStatus;
     }
     interface WcPlayer {
         "autoplay": boolean;
@@ -116,17 +116,17 @@ declare global {
         prototype: HTMLWcPictureInPictureElement;
         new (): HTMLWcPictureInPictureElement;
     };
-    interface HTMLWcPlayPauseElement extends Components.WcPlayPause, HTMLStencilElement {
-    }
-    var HTMLWcPlayPauseElement: {
-        prototype: HTMLWcPlayPauseElement;
-        new (): HTMLWcPlayPauseElement;
-    };
     interface HTMLWcPlayPauseLayerElement extends Components.WcPlayPauseLayer, HTMLStencilElement {
     }
     var HTMLWcPlayPauseLayerElement: {
         prototype: HTMLWcPlayPauseLayerElement;
         new (): HTMLWcPlayPauseLayerElement;
+    };
+    interface HTMLWcPlayToggleElement extends Components.WcPlayToggle, HTMLStencilElement {
+    }
+    var HTMLWcPlayToggleElement: {
+        prototype: HTMLWcPlayToggleElement;
+        new (): HTMLWcPlayToggleElement;
     };
     interface HTMLWcPlayerElement extends Components.WcPlayer, HTMLStencilElement {
     }
@@ -164,8 +164,8 @@ declare global {
         "wc-fullscreen": HTMLWcFullscreenElement;
         "wc-layers": HTMLWcLayersElement;
         "wc-picture-in-picture": HTMLWcPictureInPictureElement;
-        "wc-play-pause": HTMLWcPlayPauseElement;
         "wc-play-pause-layer": HTMLWcPlayPauseLayerElement;
+        "wc-play-toggle": HTMLWcPlayToggleElement;
         "wc-player": HTMLWcPlayerElement;
         "wc-progress": HTMLWcProgressElement;
         "wc-spacer": HTMLWcSpacerElement;
@@ -199,10 +199,10 @@ declare namespace LocalJSX {
     interface WcPictureInPicture {
         "nativeVideo"?: HTMLVideoElement;
     }
-    interface WcPlayPause {
-        "status"?: VideoStatus;
-    }
     interface WcPlayPauseLayer {
+    }
+    interface WcPlayToggle {
+        "status"?: VideoStatus;
     }
     interface WcPlayer {
         "autoplay"?: boolean;
@@ -247,8 +247,8 @@ declare namespace LocalJSX {
         "wc-fullscreen": WcFullscreen;
         "wc-layers": WcLayers;
         "wc-picture-in-picture": WcPictureInPicture;
-        "wc-play-pause": WcPlayPause;
         "wc-play-pause-layer": WcPlayPauseLayer;
+        "wc-play-toggle": WcPlayToggle;
         "wc-player": WcPlayer;
         "wc-progress": WcProgress;
         "wc-spacer": WcSpacer;
@@ -265,8 +265,8 @@ declare module "@stencil/core" {
             "wc-fullscreen": LocalJSX.WcFullscreen & JSXBase.HTMLAttributes<HTMLWcFullscreenElement>;
             "wc-layers": LocalJSX.WcLayers & JSXBase.HTMLAttributes<HTMLWcLayersElement>;
             "wc-picture-in-picture": LocalJSX.WcPictureInPicture & JSXBase.HTMLAttributes<HTMLWcPictureInPictureElement>;
-            "wc-play-pause": LocalJSX.WcPlayPause & JSXBase.HTMLAttributes<HTMLWcPlayPauseElement>;
             "wc-play-pause-layer": LocalJSX.WcPlayPauseLayer & JSXBase.HTMLAttributes<HTMLWcPlayPauseLayerElement>;
+            "wc-play-toggle": LocalJSX.WcPlayToggle & JSXBase.HTMLAttributes<HTMLWcPlayToggleElement>;
             "wc-player": LocalJSX.WcPlayer & JSXBase.HTMLAttributes<HTMLWcPlayerElement>;
             "wc-progress": LocalJSX.WcProgress & JSXBase.HTMLAttributes<HTMLWcProgressElement>;
             "wc-spacer": LocalJSX.WcSpacer & JSXBase.HTMLAttributes<HTMLWcSpacerElement>;
