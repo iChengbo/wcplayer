@@ -1,11 +1,11 @@
 import { Component, Host, h, Prop, State } from '@stencil/core';
 
 @Component({
-  tag: 'wc-fullscreen',
-  styleUrl: 'wc-fullscreen.css',
+  tag: 'wc-fullscreen-toggle',
+  styleUrl: 'wc-fullscreen-toggle.css',
   shadow: true,
 })
-export class WcFullscreen {
+export class WcFullscreenToggle {
 
   @Prop() target: HTMLElement
 

@@ -48,7 +48,7 @@ graph TD;
   wc-controls --> wc-volume
   wc-controls --> wc-spacer
   wc-controls --> wc-picture-in-picture
-  wc-controls --> wc-fullscreen
+  wc-controls --> wc-fullscreen-toggle
   style wc-player fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

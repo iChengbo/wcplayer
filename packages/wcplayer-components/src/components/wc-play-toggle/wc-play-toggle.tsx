@@ -7,7 +7,7 @@ import { VideoStatus } from '../../constants';
   styleUrl: 'wc-play-toggle.css',
   shadow: true,
 })
-export class WcPlayPause {
+export class WcPlayToggle {
 
   @Prop() status: VideoStatus = VideoStatus.PAUSED
 

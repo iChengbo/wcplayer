@@ -10,7 +10,7 @@ import { defineCustomElements } from '@wcplayer/components/loader';
 defineCustomElements();
 export const WcControls = /*@__PURE__*/createReactComponent<JSX.WcControls, HTMLWcControlsElement>('wc-controls');
 export const WcCoverLayer = /*@__PURE__*/createReactComponent<JSX.WcCoverLayer, HTMLWcCoverLayerElement>('wc-cover-layer');
-export const WcFullscreen = /*@__PURE__*/createReactComponent<JSX.WcFullscreen, HTMLWcFullscreenElement>('wc-fullscreen');
+export const WcFullscreenToggle = /*@__PURE__*/createReactComponent<JSX.WcFullscreenToggle, HTMLWcFullscreenToggleElement>('wc-fullscreen-toggle');
 export const WcLayers = /*@__PURE__*/createReactComponent<JSX.WcLayers, HTMLWcLayersElement>('wc-layers');
 export const WcPictureInPicture = /*@__PURE__*/createReactComponent<JSX.WcPictureInPicture, HTMLWcPictureInPictureElement>('wc-picture-in-picture');
 export const WcPlayPauseLayer = /*@__PURE__*/createReactComponent<JSX.WcPlayPauseLayer, HTMLWcPlayPauseLayerElement>('wc-play-pause-layer');

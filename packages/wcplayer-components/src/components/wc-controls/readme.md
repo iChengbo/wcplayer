@@ -41,7 +41,7 @@
 - [wc-volume](../wc-volume)
 - [wc-spacer](../wc-spacer)
 - [wc-picture-in-picture](../wc-picture-in-picture)
-- [wc-fullscreen](../wc-fullscreen)
+- [wc-fullscreen-toggle](../wc-fullscreen-toggle)
 
 ### Graph
 ```mermaid
@@ -51,7 +51,7 @@ graph TD;
   wc-controls --> wc-volume
   wc-controls --> wc-spacer
   wc-controls --> wc-picture-in-picture
-  wc-controls --> wc-fullscreen
+  wc-controls --> wc-fullscreen-toggle
   wc-player --> wc-controls
   style wc-controls fill:#f9f,stroke:#333,stroke-width:4px
 ```

@@ -18,7 +18,7 @@ export namespace Components {
     }
     interface WcCoverLayer {
     }
-    interface WcFullscreen {
+    interface WcFullscreenToggle {
         "target": HTMLElement;
     }
     interface WcLayers {
@@ -98,11 +98,11 @@ declare global {
         prototype: HTMLWcCoverLayerElement;
         new (): HTMLWcCoverLayerElement;
     };
-    interface HTMLWcFullscreenElement extends Components.WcFullscreen, HTMLStencilElement {
+    interface HTMLWcFullscreenToggleElement extends Components.WcFullscreenToggle, HTMLStencilElement {
     }
-    var HTMLWcFullscreenElement: {
-        prototype: HTMLWcFullscreenElement;
-        new (): HTMLWcFullscreenElement;
+    var HTMLWcFullscreenToggleElement: {
+        prototype: HTMLWcFullscreenToggleElement;
+        new (): HTMLWcFullscreenToggleElement;
     };
     interface HTMLWcLayersElement extends Components.WcLayers, HTMLStencilElement {
     }
@@ -161,7 +161,7 @@ declare global {
     interface HTMLElementTagNameMap {
         "wc-controls": HTMLWcControlsElement;
         "wc-cover-layer": HTMLWcCoverLayerElement;
-        "wc-fullscreen": HTMLWcFullscreenElement;
+        "wc-fullscreen-toggle": HTMLWcFullscreenToggleElement;
         "wc-layers": HTMLWcLayersElement;
         "wc-picture-in-picture": HTMLWcPictureInPictureElement;
         "wc-play-pause-layer": HTMLWcPlayPauseLayerElement;
@@ -189,7 +189,7 @@ declare namespace LocalJSX {
     }
     interface WcCoverLayer {
     }
-    interface WcFullscreen {
+    interface WcFullscreenToggle {
         "target"?: HTMLElement;
     }
     interface WcLayers {
@@ -244,7 +244,7 @@ declare namespace LocalJSX {
     interface IntrinsicElements {
         "wc-controls": WcControls;
         "wc-cover-layer": WcCoverLayer;
-        "wc-fullscreen": WcFullscreen;
+        "wc-fullscreen-toggle": WcFullscreenToggle;
         "wc-layers": WcLayers;
         "wc-picture-in-picture": WcPictureInPicture;
         "wc-play-pause-layer": WcPlayPauseLayer;
@@ -262,7 +262,7 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             "wc-controls": LocalJSX.WcControls & JSXBase.HTMLAttributes<HTMLWcControlsElement>;
             "wc-cover-layer": LocalJSX.WcCoverLayer & JSXBase.HTMLAttributes<HTMLWcCoverLayerElement>;
-            "wc-fullscreen": LocalJSX.WcFullscreen & JSXBase.HTMLAttributes<HTMLWcFullscreenElement>;
+            "wc-fullscreen-toggle": LocalJSX.WcFullscreenToggle & JSXBase.HTMLAttributes<HTMLWcFullscreenToggleElement>;
             "wc-layers": LocalJSX.WcLayers & JSXBase.HTMLAttributes<HTMLWcLayersElement>;
             "wc-picture-in-picture": LocalJSX.WcPictureInPicture & JSXBase.HTMLAttributes<HTMLWcPictureInPictureElement>;
             "wc-play-pause-layer": LocalJSX.WcPlayPauseLayer & JSXBase.HTMLAttributes<HTMLWcPlayPauseLayerElement>;

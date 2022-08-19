@@ -1,10 +1,10 @@
 import { newSpecPage } from '@stencil/core/testing';
-import { WcPlayPause } from '../wc-play-toggle';
+import { WcPlayToggle } from '../wc-play-toggle';
 
 describe('wc-play-toggle', () => {
   it('renders', async () => {
     const page = await newSpecPage({
-      components: [WcPlayPause],
+      components: [WcPlayToggle],
       html: `<wc-play-toggle></wc-play-toggle>`,
     });
     expect(page.root).toEqualHtml(`

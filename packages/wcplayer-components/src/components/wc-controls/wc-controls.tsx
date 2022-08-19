@@ -76,9 +76,9 @@ export class WcControls {
         <wc-picture-in-picture
           nativeVideo={this.nativeVideo}
         ></wc-picture-in-picture>
-        <wc-fullscreen
+        <wc-fullscreen-toggle
           target={this.playerElement}
-        ></wc-fullscreen>
+        ></wc-fullscreen-toggle>
         <slot name="after-right"/>
       </Host>
     );

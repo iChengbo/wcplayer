@@ -21,8 +21,8 @@
 ### Graph
 ```mermaid
 graph TD;
-  wc-controls --> wc-fullscreen
-  style wc-fullscreen fill:#f9f,stroke:#333,stroke-width:4px
+  wc-controls --> wc-fullscreen-toggle
+  style wc-fullscreen-toggle fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
 ----------------------------------------------
