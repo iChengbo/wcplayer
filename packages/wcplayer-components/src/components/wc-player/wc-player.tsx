@@ -20,7 +20,7 @@ export class WcPlayer {
   @Prop() autoplay = false
   @Prop() muted = false
 
-  @State() videoStatus: VideoStatus = VideoStatus.PAUSED
+  @State() _videoStatus: VideoStatus = VideoStatus.PAUSED
   @State() _isMuted: boolean
   @State() _volume: number
   @State() _isPictureInPicture: boolean
@@ -42,7 +42,7 @@ export class WcPlayer {
   componentWillLoad() {
     this._isMuted = this.muted
     if (this.autoplay && this.muted) {
-      this.videoStatus = VideoStatus.PLAYING
+      this._videoStatus = VideoStatus.PLAYING
     }
     this._volume = 0.5
   }
@@ -53,16 +53,16 @@ export class WcPlayer {
 
   _play = async () => {
     await this.wcVideoRef.play()
-    this.videoStatus = VideoStatus.PLAYING
+    this._videoStatus = VideoStatus.PLAYING
   }
 
   _pause = async () => {
     await this.wcVideoRef.pause()
-    this.videoStatus = VideoStatus.PAUSED
+    this._videoStatus = VideoStatus.PAUSED
   }
 
   handleOnEnded = () => {
-    this.videoStatus = VideoStatus.ENDED
+    this._videoStatus = VideoStatus.ENDED
   }
 
   handleTimeUpdate = throttle(() => {
@@ -79,7 +79,7 @@ export class WcPlayer {
   }
 
   handleClickPlayToggle = () => {
-    if (this.videoStatus === VideoStatus.PLAYING) {
+    if (this._videoStatus === VideoStatus.PLAYING) {
       this._pause()
     } else {
       this._play()
@@ -136,7 +136,7 @@ export class WcPlayer {
             duration={this._duration}
             onSeek={this.handleOnSeek}
             // wc-play-pause
-            videoStatus={this.videoStatus}
+            videoStatus={this._videoStatus}
             onClickPlayToggle={this.handleClickPlayToggle}
             // wc-volume
             currentVolume={this._volume}
