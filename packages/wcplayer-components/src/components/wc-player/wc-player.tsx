@@ -69,8 +69,9 @@ export class WcPlayer {
     this._currentTime = this._nativeVideo?.currentTime ?? 0
   }, 250)
 
-  handleDurationChange = throttle(() => {
-    this._duration = this._nativeVideo?.duration ?? 0
+  handleDurationChange = throttle(async () => {
+    const nativeVideo = await this.wcVideoRef.getNativeVideo()
+    this._duration = nativeVideo?.duration ?? 0
   }, 250)
 
   handleOnSeek = ({ detail: position }) => {
