@@ -1,6 +1,6 @@
 {
   "name": "@wcplayer/components-react",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "React specific wrapper for @wcplayer/components",
   "author": "iChengbo <https://github.com/iChengbo>",
   "license": "MIT",
