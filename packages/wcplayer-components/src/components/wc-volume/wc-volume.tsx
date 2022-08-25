@@ -57,7 +57,7 @@ export class WcVolume {
             min="0"
             max="100"
             value={this._volume * 100}
-            onChange={() => {
+            onInput={() => {
               this.handleChangeVolume(Number(this.sliderRef.value) / 100)
             }}
           />

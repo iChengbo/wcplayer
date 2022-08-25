@@ -66,7 +66,7 @@ export class WcProgress {
             min={0}
             max={_duration}
             value={_currentTime}
-            onChange={this.handleChangeValue}
+            onInput={this.handleChangeValue}
           />
       </Host>
     );
