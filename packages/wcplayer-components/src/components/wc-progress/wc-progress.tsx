@@ -61,7 +61,6 @@ export class WcProgress {
                 this.sliderRef = dom
               }
             }}
-            class={classNames('slider')}
             type="range"
             min={0}
             max={_duration}
