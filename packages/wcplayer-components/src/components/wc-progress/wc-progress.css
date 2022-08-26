@@ -15,6 +15,7 @@ input[type="range"] {
   height: 5px;
   border-radius: 2.5px;
   background: #d3d3d3;
+  cursor: pointer;
   outline: none;
   opacity: 0.8;
   -webkit-transition: .2s;
@@ -32,7 +33,6 @@ input[type="range"]::-webkit-slider-thumb {
   height: 10px;
   border-radius: 50%;
   background-color: #04AA6D;
-  cursor: pointer;
   border: 1px solid transparent;
   border-image: linear-gradient(#04AA6D,#04AA6D) 0 fill / 2.5 10 2.5 0 / 0px 0px 0 100vw;
 }
