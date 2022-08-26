@@ -38,10 +38,10 @@ input[type="range"]::-webkit-slider-thumb {
 }
 
 input[type="range"]::-moz-range-thumb {
-  height: 10px;
-  width: 10px;
+  height: 8px;
+  width: 8px;
   border-radius: 50%;
   background-color: #04AA6D;
   border: 1px solid transparent;
-  border-image: linear-gradient(#04AA6D,#04AA6D) 0 fill / 2.5 10 2.5 0 / 0px 0px 0 100vw;
+  border-image: linear-gradient(#04AA6D,#04AA6D) 0 fill / 2.5 8 2.5 0 / 0px 0px 0 100vw;
 }
