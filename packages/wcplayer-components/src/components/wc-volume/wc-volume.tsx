@@ -12,7 +12,6 @@ export class WcVolume {
 
   @Prop() currentVolume: number
   @Prop() isMuted: boolean
-  @Prop() changeVolume: (volume: number) => void
 
   @State() _volume: number
 

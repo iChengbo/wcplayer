@@ -63,15 +63,12 @@ export class WcControls {
           status={this.videoStatus}
           onClick={this.handleClickPlayToggle}
         ></wc-play-toggle>
-        <wc-mute-toggle
+        <wc-volume-control
           isMuted={this.isMuted}
-          onClick={this.handleClickMuteToggle}
-        ></wc-mute-toggle>
-        <wc-volume
-          currentVolume={this.currentVolume}
-          isMuted={this.isMuted}
-          onVolumechange={this.handleOnVolumeChange}
-        ></wc-volume>
+          onToggleMute={this.handleClickMuteToggle}
+          volume={this.currentVolume}
+          onVolumeChange={this.handleOnVolumeChange}
+        ></wc-volume-control>
         <slot name="after-left"/>
         <wc-spacer></wc-spacer>
         <slot name="before-right"/>

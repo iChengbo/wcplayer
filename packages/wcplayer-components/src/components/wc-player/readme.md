@@ -45,11 +45,12 @@ graph TD;
   wc-layers --> wc-play-pause-layer
   wc-controls --> wc-progress
   wc-controls --> wc-play-toggle
-  wc-controls --> wc-mute-toggle
-  wc-controls --> wc-volume
+  wc-controls --> wc-volume-control
   wc-controls --> wc-spacer
   wc-controls --> wc-picture-in-picture-toggle
   wc-controls --> wc-fullscreen-toggle
+  wc-volume-control --> wc-mute-toggle
+  wc-volume-control --> wc-volume
   style wc-player fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

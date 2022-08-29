@@ -38,8 +38,7 @@
 
 - [wc-progress](../wc-progress)
 - [wc-play-toggle](../wc-play-toggle)
-- [wc-mute-toggle](../wc-mute-toggle)
-- [wc-volume](../wc-volume)
+- [wc-volume-control](../wc-volume-control)
 - [wc-spacer](../wc-spacer)
 - [wc-picture-in-picture-toggle](../wc-picture-in-picture-toggle)
 - [wc-fullscreen-toggle](../wc-fullscreen-toggle)
@@ -49,11 +48,12 @@
 graph TD;
   wc-controls --> wc-progress
   wc-controls --> wc-play-toggle
-  wc-controls --> wc-mute-toggle
-  wc-controls --> wc-volume
+  wc-controls --> wc-volume-control
   wc-controls --> wc-spacer
   wc-controls --> wc-picture-in-picture-toggle
   wc-controls --> wc-fullscreen-toggle
+  wc-volume-control --> wc-mute-toggle
+  wc-volume-control --> wc-volume
   wc-player --> wc-controls
   style wc-controls fill:#f9f,stroke:#333,stroke-width:4px
 ```

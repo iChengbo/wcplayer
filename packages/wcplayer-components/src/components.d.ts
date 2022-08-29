@@ -63,9 +63,12 @@ export namespace Components {
         "volume": number;
     }
     interface WcVolume {
-        "changeVolume": (volume: number) => void;
         "currentVolume": number;
         "isMuted": boolean;
+    }
+    interface WcVolumeControl {
+        "isMuted": boolean;
+        "volume": number;
     }
 }
 export interface WcControlsCustomEvent<T> extends CustomEvent<T> {
@@ -87,6 +90,10 @@ export interface WcVideoCustomEvent<T> extends CustomEvent<T> {
 export interface WcVolumeCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLWcVolumeElement;
+}
+export interface WcVolumeControlCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLWcVolumeControlElement;
 }
 declare global {
     interface HTMLWcControlsElement extends Components.WcControls, HTMLStencilElement {
@@ -167,6 +174,12 @@ declare global {
         prototype: HTMLWcVolumeElement;
         new (): HTMLWcVolumeElement;
     };
+    interface HTMLWcVolumeControlElement extends Components.WcVolumeControl, HTMLStencilElement {
+    }
+    var HTMLWcVolumeControlElement: {
+        prototype: HTMLWcVolumeControlElement;
+        new (): HTMLWcVolumeControlElement;
+    };
     interface HTMLElementTagNameMap {
         "wc-controls": HTMLWcControlsElement;
         "wc-cover-layer": HTMLWcCoverLayerElement;
@@ -181,6 +194,7 @@ declare global {
         "wc-spacer": HTMLWcSpacerElement;
         "wc-video": HTMLWcVideoElement;
         "wc-volume": HTMLWcVolumeElement;
+        "wc-volume-control": HTMLWcVolumeControlElement;
     }
 }
 declare namespace LocalJSX {
@@ -248,10 +262,15 @@ declare namespace LocalJSX {
         "volume"?: number;
     }
     interface WcVolume {
-        "changeVolume"?: (volume: number) => void;
         "currentVolume"?: number;
         "isMuted"?: boolean;
         "onVolumechange"?: (event: WcVolumeCustomEvent<any>) => void;
+    }
+    interface WcVolumeControl {
+        "isMuted"?: boolean;
+        "onToggleMute"?: (event: WcVolumeControlCustomEvent<any>) => void;
+        "onVolumeChange"?: (event: WcVolumeControlCustomEvent<any>) => void;
+        "volume"?: number;
     }
     interface IntrinsicElements {
         "wc-controls": WcControls;
@@ -267,6 +286,7 @@ declare namespace LocalJSX {
         "wc-spacer": WcSpacer;
         "wc-video": WcVideo;
         "wc-volume": WcVolume;
+        "wc-volume-control": WcVolumeControl;
     }
 }
 export { LocalJSX as JSX };
@@ -286,6 +306,7 @@ declare module "@stencil/core" {
             "wc-spacer": LocalJSX.WcSpacer & JSXBase.HTMLAttributes<HTMLWcSpacerElement>;
             "wc-video": LocalJSX.WcVideo & JSXBase.HTMLAttributes<HTMLWcVideoElement>;
             "wc-volume": LocalJSX.WcVolume & JSXBase.HTMLAttributes<HTMLWcVolumeElement>;
+            "wc-volume-control": LocalJSX.WcVolumeControl & JSXBase.HTMLAttributes<HTMLWcVolumeControlElement>;
         }
     }
 }

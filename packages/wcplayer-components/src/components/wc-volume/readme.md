@@ -7,11 +7,10 @@
 
 ## Properties
 
-| Property        | Attribute        | Description | Type                       | Default     |
-| --------------- | ---------------- | ----------- | -------------------------- | ----------- |
-| `changeVolume`  | --               |             | `(volume: number) => void` | `undefined` |
-| `currentVolume` | `current-volume` |             | `number`                   | `undefined` |
-| `isMuted`       | `is-muted`       |             | `boolean`                  | `undefined` |
+| Property        | Attribute        | Description | Type      | Default     |
+| --------------- | ---------------- | ----------- | --------- | ----------- |
+| `currentVolume` | `current-volume` |             | `number`  | `undefined` |
+| `isMuted`       | `is-muted`       |             | `boolean` | `undefined` |
 
 
 ## Events
@@ -25,12 +24,12 @@
 
 ### Used by
 
- - [wc-controls](../wc-controls)
+ - [wc-volume-control](../wc-volume-control)
 
 ### Graph
 ```mermaid
 graph TD;
-  wc-controls --> wc-volume
+  wc-volume-control --> wc-volume
   style wc-volume fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

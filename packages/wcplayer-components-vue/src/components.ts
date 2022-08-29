@@ -95,7 +95,14 @@ export const WcVideo = /*@__PURE__*/ defineContainer<JSX.WcVideo>('wc-video', un
 export const WcVolume = /*@__PURE__*/ defineContainer<JSX.WcVolume>('wc-volume', undefined, [
   'currentVolume',
   'isMuted',
-  'changeVolume',
   'volumechange'
+]);
+
+
+export const WcVolumeControl = /*@__PURE__*/ defineContainer<JSX.WcVolumeControl>('wc-volume-control', undefined, [
+  'volume',
+  'isMuted',
+  'toggleMute',
+  'volumeChange'
 ]);
 
