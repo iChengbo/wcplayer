@@ -204,9 +204,9 @@ declare namespace LocalJSX {
         "duration"?: number;
         "isMuted"?: boolean;
         "nativeVideo"?: HTMLVideoElement;
-        "onClickMuteToggle"?: (event: WcControlsCustomEvent<any>) => void;
-        "onClickPlayToggle"?: (event: WcControlsCustomEvent<any>) => void;
         "onSeek"?: (event: WcControlsCustomEvent<any>) => void;
+        "onToggleMute"?: (event: WcControlsCustomEvent<any>) => void;
+        "onTogglePlay"?: (event: WcControlsCustomEvent<any>) => void;
         "onVolumechange"?: (event: WcControlsCustomEvent<any>) => void;
         "playerElement"?: HTMLElement;
         "videoStatus"?: VideoStatus;

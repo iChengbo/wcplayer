@@ -20,12 +20,12 @@
 
 ## Events
 
-| Event             | Description | Type               |
-| ----------------- | ----------- | ------------------ |
-| `clickMuteToggle` |             | `CustomEvent<any>` |
-| `clickPlayToggle` |             | `CustomEvent<any>` |
-| `seek`            |             | `CustomEvent<any>` |
-| `volumechange`    |             | `CustomEvent<any>` |
+| Event          | Description | Type               |
+| -------------- | ----------- | ------------------ |
+| `seek`         |             | `CustomEvent<any>` |
+| `toggleMute`   |             | `CustomEvent<any>` |
+| `togglePlay`   |             | `CustomEvent<any>` |
+| `volumechange` |             | `CustomEvent<any>` |
 
 
 ## Dependencies

@@ -19,7 +19,9 @@ export class WcVolumeControl {
   }) onVolumeChange: EventEmitter
 
 
-  handleClickMuteToggle = () => {
+  handleClickMuteToggle = (evt) => {
+    evt?.stopPropagation()
+    evt?.preventDefault()
     this.onToggleMute.emit()
   }
 

@@ -135,15 +135,15 @@ export class WcPlayer {
             currentTime={this._currentTime}
             duration={this._duration}
             onSeek={this.handleOnSeek}
-            // wc-play-pause
+            // wc-play-toggle
             videoStatus={this._videoStatus}
-            onClickPlayToggle={this.handleClickPlayToggle}
-            // wc-volume
+            onTogglePlay={this.handleClickPlayToggle}
+            // wc-volume-control
             currentVolume={this._volume}
             isMuted={this._isMuted}
-            onClickMuteToggle={this.handleClickMuteToggle}
+            onToggleMute={this.handleClickMuteToggle}
             onVolumechange={this.handleOnVolumeChange}
-            // wc-picture-in-picture
+            // wc-picture-in-picture-toggle
             nativeVideo={this._nativeVideo}
             // wc-fullscreen
             playerElement={this.ele}

@@ -24,12 +24,12 @@ export class WcControls {
   }) onSeek: EventEmitter
 
   @Event({
-    eventName: 'clickPlayToggle'
-  }) onClickPlayToggle: EventEmitter
+    eventName: 'togglePlay'
+  }) onTogglePlay: EventEmitter
 
   @Event({
-    eventName: 'clickMuteToggle',
-  }) onClickMuteToggle: EventEmitter
+    eventName: 'toggleMute',
+  }) onToggleMute: EventEmitter
 
   @Event({
     eventName: 'volumechange'
@@ -40,11 +40,13 @@ export class WcControls {
   }
 
   handleClickPlayToggle = () => {
-    this.onClickPlayToggle.emit()
+    this.onTogglePlay.emit()
   }
 
-  handleClickMuteToggle = () => {
-    this.onClickMuteToggle.emit()
+  handleClickMuteToggle = (evt) => {
+    evt?.stopPropagation()
+    evt?.preventDefault()
+    this.onToggleMute.emit()
   }
   handleOnVolumeChange = () => {
     this.onVolumechange.emit()
