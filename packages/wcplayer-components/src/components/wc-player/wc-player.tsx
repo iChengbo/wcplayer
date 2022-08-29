@@ -148,6 +148,18 @@ export class WcPlayer {
             // wc-fullscreen
             playerElement={this.ele}
           >
+            <div slot="before-left">
+              <slot name='before-left'></slot>
+            </div>
+            <div slot="after-left">
+              <slot name="after-left"></slot>
+            </div>
+            <div slot="before-right">
+              <slot name="before-right"></slot>
+            </div>
+            <div slot="after-right">
+              <slot name="after-right"></slot>
+            </div>
           </wc-controls>
         )}
       </Host>
