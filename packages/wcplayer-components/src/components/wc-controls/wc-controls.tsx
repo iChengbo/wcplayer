@@ -20,8 +20,12 @@ export class WcControls {
   @Prop() playerElement: HTMLElement
 
   @Event({
-    eventName: 'seek'
-  }) onSeek: EventEmitter
+    eventName: 'seeking'
+  }) onSeeking: EventEmitter
+
+  @Event({
+    eventName: 'seeked'
+  }) onSeeked: EventEmitter
 
   @Event({
     eventName: 'togglePlay'
@@ -35,8 +39,12 @@ export class WcControls {
     eventName: 'volumechange'
   }) onVolumechange: EventEmitter
 
-  handleOnSeek = ({ detail: position }) => {
-    this.onSeek.emit(position)
+  handleSeeking = () => {
+    this.onSeeking.emit()
+  }
+
+  handleSeeked = ({ detail: position }) => {
+    this.onSeeked.emit(position)
   }
 
   handleClickPlayToggle = () => {
@@ -58,7 +66,8 @@ export class WcControls {
         <wc-progress
           currentTime={this.currentTime}
           duration={this.duration}
-          onSeek={this.handleOnSeek}
+          onSeeking={this.handleSeeking}
+          onSeeked={this.handleSeeked}
         ></wc-progress>
         <slot name="before-left"/>
         <wc-play-toggle

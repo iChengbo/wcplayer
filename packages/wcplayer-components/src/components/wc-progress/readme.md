@@ -15,9 +15,10 @@
 
 ## Events
 
-| Event  | Description | Type               |
-| ------ | ----------- | ------------------ |
-| `seek` |             | `CustomEvent<any>` |
+| Event     | Description | Type               |
+| --------- | ----------- | ------------------ |
+| `seeked`  |             | `CustomEvent<any>` |
+| `seeking` |             | `CustomEvent<any>` |
 
 
 ## Dependencies

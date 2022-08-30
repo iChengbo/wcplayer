@@ -18,8 +18,12 @@ export class WcProgress {
   @State() _currentValue: number
 
   @Event({
-    eventName: 'seek'
-  }) onSeek: EventEmitter
+    eventName: 'seeked'
+  }) onSeeked: EventEmitter
+
+  @Event({
+    eventName: 'seeking'
+  }) onSeeking: EventEmitter
 
   @Watch('currentTime')
   watchCurrentTimeHander() {
@@ -42,9 +46,13 @@ export class WcProgress {
     }
   }
 
-  handleChangeValue = () => {
+  handleSeeking = () => {
+    this.onSeeking.emit()
+  }
+
+  handleSeeked = () => {
     const nextTime = Number(this.sliderRef.value)
-    this.onSeek.emit(nextTime)
+    this.onSeeked.emit(nextTime)
   }
 
   render() {
@@ -65,7 +73,8 @@ export class WcProgress {
             min={0}
             max={_duration}
             value={_currentTime}
-            onInput={this.handleChangeValue}
+            onMouseDown={this.handleSeeking}
+            onMouseUp={this.handleSeeked}
           />
       </Host>
     );

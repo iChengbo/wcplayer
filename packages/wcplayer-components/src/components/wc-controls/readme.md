@@ -22,7 +22,8 @@
 
 | Event          | Description | Type               |
 | -------------- | ----------- | ------------------ |
-| `seek`         |             | `CustomEvent<any>` |
+| `seeked`       |             | `CustomEvent<any>` |
+| `seeking`      |             | `CustomEvent<any>` |
 | `toggleMute`   |             | `CustomEvent<any>` |
 | `togglePlay`   |             | `CustomEvent<any>` |
 | `volumechange` |             | `CustomEvent<any>` |

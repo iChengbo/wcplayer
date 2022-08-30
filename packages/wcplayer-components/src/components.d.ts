@@ -204,7 +204,8 @@ declare namespace LocalJSX {
         "duration"?: number;
         "isMuted"?: boolean;
         "nativeVideo"?: HTMLVideoElement;
-        "onSeek"?: (event: WcControlsCustomEvent<any>) => void;
+        "onSeeked"?: (event: WcControlsCustomEvent<any>) => void;
+        "onSeeking"?: (event: WcControlsCustomEvent<any>) => void;
         "onToggleMute"?: (event: WcControlsCustomEvent<any>) => void;
         "onTogglePlay"?: (event: WcControlsCustomEvent<any>) => void;
         "onVolumechange"?: (event: WcControlsCustomEvent<any>) => void;
@@ -240,7 +241,8 @@ declare namespace LocalJSX {
     interface WcProgress {
         "currentTime"?: number;
         "duration"?: number;
-        "onSeek"?: (event: WcProgressCustomEvent<any>) => void;
+        "onSeeked"?: (event: WcProgressCustomEvent<any>) => void;
+        "onSeeking"?: (event: WcProgressCustomEvent<any>) => void;
     }
     interface WcSpacer {
     }

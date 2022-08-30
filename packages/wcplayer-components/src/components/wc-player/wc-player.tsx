@@ -74,8 +74,13 @@ export class WcPlayer {
     this._duration = nativeVideo?.duration ?? 0
   }, 250)
 
-  handleOnSeek = ({ detail: position }) => {
+  handleOnSeeking = async () => {
+    await this._pause()
+  }
+
+  handleOnSeeked = async ({ detail: position }) => {
     this.wcVideoRef.seek(position)
+    await this._play()
   }
 
   handleClickPlayToggle = () => {
@@ -134,7 +139,9 @@ export class WcPlayer {
             // wc-progress
             currentTime={this._currentTime}
             duration={this._duration}
-            onSeek={this.handleOnSeek}
+            onSeeking={this.handleOnSeeking}
+            onSeeked={this.handleOnSeeked}
+            // onSeek={this.handleOnSeek}
             // wc-play-toggle
             videoStatus={this._videoStatus}
             onTogglePlay={this.handleClickPlayToggle}

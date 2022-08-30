@@ -16,7 +16,8 @@ export const WcControls = /*@__PURE__*/ defineContainer<JSX.WcControls>('wc-cont
   'isMuted',
   'nativeVideo',
   'playerElement',
-  'seek',
+  'seeking',
+  'seeked',
   'togglePlay',
   'toggleMute',
   'volumechange'
@@ -66,7 +67,8 @@ export const WcPlayer = /*@__PURE__*/ defineContainer<JSX.WcPlayer>('wc-player',
 export const WcProgress = /*@__PURE__*/ defineContainer<JSX.WcProgress>('wc-progress', undefined, [
   'currentTime',
   'duration',
-  'seek'
+  'seeked',
+  'seeking'
 ]);
 
 
