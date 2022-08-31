@@ -32,16 +32,16 @@ input[type="range"]::-webkit-slider-thumb {
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background-color: #04AA6D;
+  background-color: #f00;
   border: 1px solid transparent;
-  border-image: linear-gradient(#04AA6D,#04AA6D) 0 fill / 2.5 10 2.5 0 / 0px 0px 0 100vw;
+  border-image: linear-gradient(#f00, #f00) 0 fill / 2.5 10 2.5 0 / 0px 0px 0 100vw;
 }
 
 input[type="range"]::-moz-range-thumb {
   height: 8px;
   width: 8px;
   border-radius: 50%;
-  background-color: #04AA6D;
+  background-color: #f00;
   border: 1px solid transparent;
-  border-image: linear-gradient(#04AA6D,#04AA6D) 0 fill / 2.5 8 2.5 0 / 0px 0px 0 100vw;
+  border-image: linear-gradient(#f00, #f00) 0 fill / 2.5 8 2.5 0 / 0px 0px 0 100vw;
 }

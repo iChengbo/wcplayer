@@ -22,7 +22,7 @@
   width: 100%;
   height: 4px;
   border-radius: 2px;
-  background: #d3d3d3;
+  background: rgba(255, 255, 255, 0.5);
   cursor: pointer;
   outline: none;
   opacity: 0.8;
@@ -40,16 +40,16 @@
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background: #04AA6D;
+  background: #fff;
   border: 1px solid transparent;
-  border-image: linear-gradient(#04AA6D,#04AA6D) 0 fill / 2.5 10 2.5 0 / 0px 0px 0 80px;
+  border-image: linear-gradient(#fff, #fff) 0 fill / 2.5 10 2.5 0 / 0px 0px 0 80px;
 }
 
 .slider::-moz-range-thumb {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: #04AA6D;
+  background: #fff;
   border: 1px solid transparent;
-  border-image: linear-gradient(#04AA6D,#04AA6D) 0 fill / 2.5 8 2.5 0 / 0px 0px 0 80px;
+  border-image: linear-gradient(#fff, #fff) 0 fill / 2.5 8 2.5 0 / 0px 0px 0 80px;
 }
