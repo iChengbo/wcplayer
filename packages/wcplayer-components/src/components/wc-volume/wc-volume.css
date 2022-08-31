@@ -5,12 +5,12 @@
   flex-direction: row;
   align-items: center;
 
-  height: 40px;
+  height: 48px;
 }
 
 .volume-slider {
   width: 80px;
-  height: 40px;
+  height: 48px;
   display: flex;
   align-items: center;
   overflow-x: hidden;

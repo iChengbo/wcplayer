@@ -2,5 +2,7 @@
   display: block;
 
   color: #ddd;
-  margin-left: 15px;
+  padding: 0 5px;
+  line-height: 47px;
+  font-size: 14px;
 }
