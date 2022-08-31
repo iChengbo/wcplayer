@@ -2,7 +2,7 @@ import { Component, Host, h, Prop, State, Watch, Element, Method } from '@stenci
 import classNames from 'classnames';
 
 import { VideoStatus } from '../../constants';
-import { throttle } from '../../utils/utils';
+import { throttle, requestFullscreen, exitFullscreen, isFullscreen } from '../../utils/utils';
 
 @Component({
   tag: 'wc-player',
@@ -104,6 +104,18 @@ export class WcPlayer {
     }
   }
 
+  handleSingleClickLayers = () => {
+    this.handleClickPlayToggle()
+  }
+
+  handleDoubleClickLayers = async () => {
+    if (isFullscreen()) {
+      await exitFullscreen()
+    } else {
+      await requestFullscreen(this.ele)
+    }
+  }
+
   render() {
     const {
       src,
@@ -129,10 +141,8 @@ export class WcPlayer {
           onDurationchange={this.handleDurationChange}
         ></wc-video>
         <wc-layers
-          onSingleClick={this.handleClickPlayToggle}
-          onDoubleClick={() => {
-            console.log('double click')
-          }}
+          onSingleClick={this.handleSingleClickLayers}
+          onDoubleClick={this.handleDoubleClickLayers}
         ></wc-layers>
         {controls && (
           <wc-controls

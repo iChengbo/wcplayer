@@ -20,3 +20,15 @@ export function throttle (fn, threshold = 250, scope?) {
     }
   }
 }
+
+export const requestFullscreen = async (target: HTMLElement) => {
+  await target.requestFullscreen()
+}
+
+export const exitFullscreen = async () => {
+  await document.exitFullscreen()
+}
+
+export const isFullscreen = (): boolean => {
+  return !!document.fullscreenElement
+}
