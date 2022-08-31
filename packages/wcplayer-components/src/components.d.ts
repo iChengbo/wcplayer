@@ -272,8 +272,10 @@ declare namespace LocalJSX {
         "onEnded"?: (event: WcVideoCustomEvent<any>) => void;
         "onPause"?: (event: WcVideoCustomEvent<any>) => void;
         "onPlay"?: (event: WcVideoCustomEvent<any>) => void;
+        "onPlaying"?: (event: WcVideoCustomEvent<any>) => void;
         "onTimeupdate"?: (event: WcVideoCustomEvent<any>) => void;
         "onVolumechange"?: (event: WcVideoCustomEvent<any>) => void;
+        "onWaiting"?: (event: WcVideoCustomEvent<any>) => void;
         "poster"?: string;
         "src"?: string;
         "volume"?: number;

@@ -28,8 +28,10 @@
 | `ended`          |             | `CustomEvent<any>` |
 | `pause`          |             | `CustomEvent<any>` |
 | `play`           |             | `CustomEvent<any>` |
+| `playing`        |             | `CustomEvent<any>` |
 | `timeupdate`     |             | `CustomEvent<any>` |
 | `volumechange`   |             | `CustomEvent<any>` |
+| `waiting`        |             | `CustomEvent<any>` |
 
 
 ## Methods

@@ -94,6 +94,8 @@ export const WcVideo = /*@__PURE__*/ defineContainer<JSX.WcVideo>('wc-video', un
   'play',
   'pause',
   'ended',
+  'playing',
+  'waiting',
   'timeupdate',
   'durationchange',
   'volumechange'

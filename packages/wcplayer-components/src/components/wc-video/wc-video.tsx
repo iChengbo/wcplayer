@@ -43,6 +43,14 @@ export class WcVideo {
   }) onEnded: EventEmitter
 
   @Event({
+    eventName: 'playing'
+  }) onPlaying: EventEmitter
+
+  @Event({
+    eventName: 'waiting'
+  }) onWaiting: EventEmitter
+
+  @Event({
     eventName: 'timeupdate'
   }) onTimeUpdate: EventEmitter
 
@@ -101,6 +109,14 @@ export class WcVideo {
     this.onEnded.emit()
   }
 
+  handlePlaying = () => {
+    this.onPlaying.emit()
+  }
+
+  handleWaiting = () => {
+    this.onWaiting.emit()
+  }
+
   handleTimeUpdate = throttle(async () => {
     this.onTimeUpdate.emit()
   }, 250)
@@ -144,6 +160,8 @@ export class WcVideo {
           onPlay={this.handlePlay}
           onPause={this.handlePause}
           onEnded={this.handleEnded}
+          onPlaying={this.handlePlaying}
+          onWaiting={this.handleWaiting}
           onTimeUpdate={this.handleTimeUpdate}
           onDurationChange={this.handleDurationChange}
           onVolumeChange={this.handleVolumeChange}
