@@ -75,6 +75,12 @@ export const WcProgress = /*@__PURE__*/ defineContainer<JSX.WcProgress>('wc-prog
 export const WcSpacer = /*@__PURE__*/ defineContainer<JSX.WcSpacer>('wc-spacer', undefined);
 
 
+export const WcTime = /*@__PURE__*/ defineContainer<JSX.WcTime>('wc-time', undefined, [
+  'currentTime',
+  'duration'
+]);
+
+
 export const WcVideo = /*@__PURE__*/ defineContainer<JSX.WcVideo>('wc-video', undefined, [
   'autoplay',
   'controls',

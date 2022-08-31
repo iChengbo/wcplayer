@@ -80,6 +80,10 @@ export class WcControls {
           volume={this.currentVolume}
           onVolumeChange={this.handleOnVolumeChange}
         ></wc-volume-control>
+        <wc-time
+          currentTime={this.currentTime}
+          duration={this.duration}
+        ></wc-time>
         <slot name="after-left"/>
         <wc-spacer></wc-spacer>
         <slot name="before-right"/>

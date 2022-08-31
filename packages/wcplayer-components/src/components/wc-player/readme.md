@@ -46,6 +46,7 @@ graph TD;
   wc-controls --> wc-progress
   wc-controls --> wc-play-toggle
   wc-controls --> wc-volume-control
+  wc-controls --> wc-time
   wc-controls --> wc-spacer
   wc-controls --> wc-picture-in-picture-toggle
   wc-controls --> wc-fullscreen-toggle

@@ -47,6 +47,10 @@ export namespace Components {
     }
     interface WcSpacer {
     }
+    interface WcTime {
+        "currentTime": number;
+        "duration": number;
+    }
     interface WcVideo {
         "autoplay": boolean;
         "controls": boolean;
@@ -162,6 +166,12 @@ declare global {
         prototype: HTMLWcSpacerElement;
         new (): HTMLWcSpacerElement;
     };
+    interface HTMLWcTimeElement extends Components.WcTime, HTMLStencilElement {
+    }
+    var HTMLWcTimeElement: {
+        prototype: HTMLWcTimeElement;
+        new (): HTMLWcTimeElement;
+    };
     interface HTMLWcVideoElement extends Components.WcVideo, HTMLStencilElement {
     }
     var HTMLWcVideoElement: {
@@ -192,6 +202,7 @@ declare global {
         "wc-player": HTMLWcPlayerElement;
         "wc-progress": HTMLWcProgressElement;
         "wc-spacer": HTMLWcSpacerElement;
+        "wc-time": HTMLWcTimeElement;
         "wc-video": HTMLWcVideoElement;
         "wc-volume": HTMLWcVolumeElement;
         "wc-volume-control": HTMLWcVolumeControlElement;
@@ -246,6 +257,10 @@ declare namespace LocalJSX {
     }
     interface WcSpacer {
     }
+    interface WcTime {
+        "currentTime"?: number;
+        "duration"?: number;
+    }
     interface WcVideo {
         "autoplay"?: boolean;
         "controls"?: boolean;
@@ -286,6 +301,7 @@ declare namespace LocalJSX {
         "wc-player": WcPlayer;
         "wc-progress": WcProgress;
         "wc-spacer": WcSpacer;
+        "wc-time": WcTime;
         "wc-video": WcVideo;
         "wc-volume": WcVolume;
         "wc-volume-control": WcVolumeControl;
@@ -306,6 +322,7 @@ declare module "@stencil/core" {
             "wc-player": LocalJSX.WcPlayer & JSXBase.HTMLAttributes<HTMLWcPlayerElement>;
             "wc-progress": LocalJSX.WcProgress & JSXBase.HTMLAttributes<HTMLWcProgressElement>;
             "wc-spacer": LocalJSX.WcSpacer & JSXBase.HTMLAttributes<HTMLWcSpacerElement>;
+            "wc-time": LocalJSX.WcTime & JSXBase.HTMLAttributes<HTMLWcTimeElement>;
             "wc-video": LocalJSX.WcVideo & JSXBase.HTMLAttributes<HTMLWcVideoElement>;
             "wc-volume": LocalJSX.WcVolume & JSXBase.HTMLAttributes<HTMLWcVolumeElement>;
             "wc-volume-control": LocalJSX.WcVolumeControl & JSXBase.HTMLAttributes<HTMLWcVolumeControlElement>;
