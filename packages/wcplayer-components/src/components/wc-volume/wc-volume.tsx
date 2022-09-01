@@ -37,8 +37,11 @@ export class WcVolume {
   }
 
   handleChangeVolume = (newVolume: number) => {
-    const volume = Math.round(Math.max(Math.min(1, newVolume), 0) * 10) / 10
+    const volume = Math.max(Math.min(1, newVolume), 0)
     this.onVolumechange.emit(volume)
+
+    this.sliderRef.style.setProperty('--from', '0')
+    this.sliderRef.style.setProperty('--to', this.sliderRef.value)
   }
 
   render() {

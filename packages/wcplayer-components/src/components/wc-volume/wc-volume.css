@@ -40,9 +40,9 @@
   width: 10px;
   height: 10px;
   border-radius: 50%;
+  position: relative;
+  bottom: 2.5px;
   background: #fff;
-  border: 1px solid transparent;
-  border-image: linear-gradient(#fff, #fff) 0 fill / 2.5 10 2.5 0 / 0px 0px 0 80px;
 }
 
 .slider::-moz-range-thumb {
@@ -50,6 +50,16 @@
   height: 8px;
   border-radius: 50%;
   background: #fff;
-  border: 1px solid transparent;
-  border-image: linear-gradient(#fff, #fff) 0 fill / 2.5 8 2.5 0 / 0px 0px 0 80px;
+}
+
+.slider::-webkit-slider-runnable-track {
+  height: 4px;
+  background: linear-gradient(to right, rgba(255, 255, 255, 0.2) calc(1% * var(--from)), #fff calc(1% * var(--from)) calc(1% * var(--to)), rgba(255, 255, 255, 0.2) 0%);
+  border-radius: 2px;
+}
+
+.slider::-moz-range-track {
+  height: 4px;
+  background: linear-gradient(to right, rgba(255, 255, 255, 0.2) calc(1% * var(--from)), #fff calc(1% * var(--from)) calc(1% * var(--to)), rgba(255, 255, 255, 0.2) 0%);
+  border-radius: 2px;
 }
