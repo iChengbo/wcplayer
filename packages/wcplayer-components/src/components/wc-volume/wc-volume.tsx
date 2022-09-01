@@ -22,6 +22,8 @@ export class WcVolume {
     } else {
       this._volume = this.currentVolume
     }
+    this.sliderRef?.style.setProperty('--from', '0')
+    this.sliderRef?.style.setProperty('--to', String(this._volume * 100))
   }
 
   @Event({
