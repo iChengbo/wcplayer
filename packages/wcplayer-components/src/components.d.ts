@@ -16,8 +16,6 @@ export namespace Components {
         "playerElement": HTMLElement;
         "videoStatus": VideoStatus;
     }
-    interface WcCoverLayer {
-    }
     interface WcFullscreenToggle {
         "target": HTMLElement;
     }
@@ -106,12 +104,6 @@ declare global {
         prototype: HTMLWcControlsElement;
         new (): HTMLWcControlsElement;
     };
-    interface HTMLWcCoverLayerElement extends Components.WcCoverLayer, HTMLStencilElement {
-    }
-    var HTMLWcCoverLayerElement: {
-        prototype: HTMLWcCoverLayerElement;
-        new (): HTMLWcCoverLayerElement;
-    };
     interface HTMLWcFullscreenToggleElement extends Components.WcFullscreenToggle, HTMLStencilElement {
     }
     var HTMLWcFullscreenToggleElement: {
@@ -192,7 +184,6 @@ declare global {
     };
     interface HTMLElementTagNameMap {
         "wc-controls": HTMLWcControlsElement;
-        "wc-cover-layer": HTMLWcCoverLayerElement;
         "wc-fullscreen-toggle": HTMLWcFullscreenToggleElement;
         "wc-layers": HTMLWcLayersElement;
         "wc-mute-toggle": HTMLWcMuteToggleElement;
@@ -222,8 +213,6 @@ declare namespace LocalJSX {
         "onVolumechange"?: (event: WcControlsCustomEvent<any>) => void;
         "playerElement"?: HTMLElement;
         "videoStatus"?: VideoStatus;
-    }
-    interface WcCoverLayer {
     }
     interface WcFullscreenToggle {
         "target"?: HTMLElement;
@@ -293,7 +282,6 @@ declare namespace LocalJSX {
     }
     interface IntrinsicElements {
         "wc-controls": WcControls;
-        "wc-cover-layer": WcCoverLayer;
         "wc-fullscreen-toggle": WcFullscreenToggle;
         "wc-layers": WcLayers;
         "wc-mute-toggle": WcMuteToggle;
@@ -314,7 +302,6 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "wc-controls": LocalJSX.WcControls & JSXBase.HTMLAttributes<HTMLWcControlsElement>;
-            "wc-cover-layer": LocalJSX.WcCoverLayer & JSXBase.HTMLAttributes<HTMLWcCoverLayerElement>;
             "wc-fullscreen-toggle": LocalJSX.WcFullscreenToggle & JSXBase.HTMLAttributes<HTMLWcFullscreenToggleElement>;
             "wc-layers": LocalJSX.WcLayers & JSXBase.HTMLAttributes<HTMLWcLayersElement>;
             "wc-mute-toggle": LocalJSX.WcMuteToggle & JSXBase.HTMLAttributes<HTMLWcMuteToggleElement>;

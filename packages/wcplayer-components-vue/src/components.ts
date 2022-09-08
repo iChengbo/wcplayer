@@ -24,9 +24,6 @@ export const WcControls = /*@__PURE__*/ defineContainer<JSX.WcControls>('wc-cont
 ]);
 
 
-export const WcCoverLayer = /*@__PURE__*/ defineContainer<JSX.WcCoverLayer>('wc-cover-layer', undefined);
-
-
 export const WcFullscreenToggle = /*@__PURE__*/ defineContainer<JSX.WcFullscreenToggle>('wc-fullscreen-toggle', undefined, [
   'target'
 ]);
