@@ -6,6 +6,8 @@
   align-items: center;
   overflow-x: hidden;
   border-radius: 100px;
+
+  --color-primary: #f40;
 }
 
 input[type="range"] {
@@ -33,9 +35,9 @@ input[type="range"]::-webkit-slider-thumb {
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background-color: #f00;
+  background-color: var(--color-primary);
   border: 1px solid transparent;
-  border-image: linear-gradient(#f00, #f00) 0 fill / 2.5 10 2.5 0 / 0px 0px 0 100vw;
+  border-image: linear-gradient(var(--color-primary), var(--color-primary)) 0 fill / 2.5 10 2.5 0 / 0px 0px 0 100vw;
 }
 
 input[type="range"]::-moz-range-thumb {
@@ -43,7 +45,7 @@ input[type="range"]::-moz-range-thumb {
   height: 8px;
   width: 8px;
   border-radius: 50%;
-  background-color: #f00;
+  background-color: var(--color-primary);
   border: 1px solid transparent;
-  border-image: linear-gradient(#f00, #f00) 0 fill / 2.5 8 2.5 0 / 0px 0px 0 100vw;
+  border-image: linear-gradient(var(--color-primary), var(--color-primary)) 0 fill / 2.5 8 2.5 0 / 0px 0px 0 100vw;
 }

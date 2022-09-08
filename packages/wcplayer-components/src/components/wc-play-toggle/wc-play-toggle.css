@@ -1,11 +1,7 @@
 :host {
-  /* display: block; */
-  height: 48px;
-  width: 46px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: block;
 }
+
 .btn-pause,
 .btn-play {
   outline: none;
@@ -13,6 +9,8 @@
   padding: 0;
   border: 1px solid transparent;
   background: transparent;
+  height: 48px;
+  width: 48px;
   opacity: 0.8;
 }
 
