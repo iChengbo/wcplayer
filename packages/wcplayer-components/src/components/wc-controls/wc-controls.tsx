@@ -56,6 +56,7 @@ export class WcControls {
     evt?.preventDefault()
     this.onToggleMute.emit()
   }
+
   handleOnVolumeChange = () => {
     this.onVolumechange.emit()
   }
