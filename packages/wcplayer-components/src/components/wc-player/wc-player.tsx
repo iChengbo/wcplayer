@@ -13,7 +13,7 @@ export class WcPlayer {
 
   private wcVideoRef: HTMLWcVideoElement
 
-  @Element() ele: HTMLElement
+  @Element() ele: HTMLVideoElement
 
   @Prop() src: string
   @Prop() controls = true
@@ -37,6 +37,27 @@ export class WcPlayer {
   @Method() async getNativeVideo() {
     this._nativeVideo = await this.wcVideoRef.getNativeVideo()
     return this._nativeVideo
+  }
+
+  constructor () {
+    this.ele.pause = this._pause
+    this.ele.play = this._play
+
+    Object.defineProperty(this.ele, 'currentTime', {
+      set: (currentTime) => {
+        this._currentTime = currentTime
+      },
+      get: () => {
+        return this._currentTime
+      }
+    })
+
+    Object.defineProperty(this.ele, 'seekable', {
+      get: () => this._nativeVideo.seekable
+    })
+    Object.defineProperty(this.ele, 'buffered', {
+      get: () => this._nativeVideo.seekable
+    })
   }
 
   componentWillLoad() {
@@ -79,7 +100,7 @@ export class WcPlayer {
   }
 
   handleOnSeeked = async ({ detail: position }) => {
-    this.wcVideoRef.seek(position)
+    await this.wcVideoRef.seek(position)
     await this._play()
   }
 
