@@ -24,7 +24,7 @@
   },
   "devDependencies": {
     "@vue/test-utils": "^2.0.2",
-    "vue": "^3.2.37"
+    "vue": "^3.2.39"
   },
   "jest": {
     "preset": "ts-jest",
