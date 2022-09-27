@@ -1,5 +1,6 @@
-import { Component, Host, h, Prop, Event, EventEmitter } from '@stencil/core';
+import { Component, Host, h, Prop, State } from '@stencil/core';
 import { VideoStatus } from '../../constants';
+import { throttle } from '../../utils/utils';
 
 @Component({
   tag: 'wc-controls',
@@ -8,95 +9,131 @@ import { VideoStatus } from '../../constants';
 })
 export class WcControls {
 
-  @Prop() currentTime: number = 0
-  @Prop() duration: number = 0
+  @Prop() getNativeVideo: () => HTMLVideoElement
+  @Prop() getPlayerElement: () => HTMLElement
 
-  @Prop() videoStatus: VideoStatus
+  @State() _currentTime: number
+  @State() _duration: number
+  @State() _status: VideoStatus
+  @State() _muted: boolean
+  @State() _volume: number
 
-  @Prop() currentVolume: number
-  @Prop() isMuted: boolean
+  handleTimeupdate = throttle(() => {
+    this._currentTime = this.getNativeVideo().currentTime ?? 0
+  }, 250)
 
-  @Prop() nativeVideo: HTMLVideoElement
-  @Prop() playerElement: HTMLElement
+  handleDurationchange = () => {
+    this._duration = this.getNativeVideo().duration ?? 0
+  }
 
-  @Event({
-    eventName: 'seeking'
-  }) onSeeking: EventEmitter
+  handlePlaying = () => {
+    this._status = VideoStatus.PLAYING
+  }
 
-  @Event({
-    eventName: 'seeked'
-  }) onSeeked: EventEmitter
+  handlePause = () => {
+    this._status = VideoStatus.PAUSED
+  }
 
-  @Event({
-    eventName: 'togglePlay'
-  }) onTogglePlay: EventEmitter
+  handleEnded = () => {
+    this._status = VideoStatus.ENDED
+  }
 
-  @Event({
-    eventName: 'toggleMute',
-  }) onToggleMute: EventEmitter
+  handleWaiting = () => {
+    this._status = VideoStatus.WAITING
+  }
 
-  @Event({
-    eventName: 'volumechange'
-  }) onVolumechange: EventEmitter
+  componentWillLoad() {
+    const nativeVideo = this.getNativeVideo()
+    this._currentTime = nativeVideo.currentTime
+    this._duration = nativeVideo.duration
+    this._muted = nativeVideo.muted
+    this._volume = 0.5
+
+    nativeVideo.addEventListener('playing', this.handlePlaying)
+    nativeVideo.addEventListener('pause', this.handlePause)
+    nativeVideo.addEventListener('ended', this.handleEnded)
+    nativeVideo.addEventListener('waiting', this.handleWaiting)
+    nativeVideo.addEventListener('timeupdate', this.handleTimeupdate)
+    nativeVideo.addEventListener('durationchange', this.handleDurationchange)
+  }
+
+  disconnectedCallback() {
+    const nativeVideo = this.getNativeVideo()
+    nativeVideo.removeEventListener('playing', this.handlePlaying)
+    nativeVideo.removeEventListener('pause', this.handlePause)
+    nativeVideo.removeEventListener('ended', this.handleEnded)
+    nativeVideo.removeEventListener('waiting', this.handleWaiting)
+    nativeVideo.removeEventListener('timeupdate', this.handleTimeupdate)
+    nativeVideo.removeEventListener('durationchange', this.handleDurationchange)
+  }
 
   handleSeeking = () => {
-    this.onSeeking.emit()
+    this.getNativeVideo().pause()
   }
 
-  handleSeeked = ({ detail: position }) => {
-    this.onSeeked.emit(position)
+  handleSeeked = async ({ detail: position }) => {
+    this.getNativeVideo().currentTime = position
+    await this.getNativeVideo().play()
   }
 
-  handleClickPlayToggle = () => {
-    this.onTogglePlay.emit()
+  handleClickPlayToggle = async () => {
+    if (this._status === VideoStatus.PLAYING || this._status === VideoStatus.WAITING) {
+      this.getNativeVideo().pause()
+    } else if (this._status === VideoStatus.PAUSED || this._status === VideoStatus.ENDED) {
+      await this.getNativeVideo().play()
+    } else {
+      console.warn('xxx')
+    }
   }
 
-  handleClickMuteToggle = (evt) => {
-    evt?.stopPropagation()
-    evt?.preventDefault()
-    this.onToggleMute.emit()
+  handleClickMuteToggle = () => {
+    this._muted = !this._muted
+    this.getNativeVideo().muted = this._muted
   }
 
-  handleOnVolumeChange = () => {
-    this.onVolumechange.emit()
+  handleOnVolumeChange = ({ detail: volume }) => {
+    this._volume = volume
+    this._muted = volume === 0
+    this.getNativeVideo().volume = volume
+    this.getNativeVideo().muted = this._muted
   }
 
   render() {
     return (
       <Host>
         <wc-progress
-          currentTime={this.currentTime}
-          duration={this.duration}
+          currentTime={this._currentTime}
+          duration={this._duration}
           onSeeking={this.handleSeeking}
           onSeeked={this.handleSeeked}
         ></wc-progress>
         <slot name="before-left"/>
         <wc-play-toggle
-          status={this.videoStatus}
+          status={this._status}
           onClick={this.handleClickPlayToggle}
         ></wc-play-toggle>
         <wc-volume-control
-          isMuted={this.isMuted}
+          isMuted={this._muted}
           onToggleMute={this.handleClickMuteToggle}
-          volume={this.currentVolume}
+          volume={this._volume}
           onVolumeChange={this.handleOnVolumeChange}
         ></wc-volume-control>
         <wc-time
-          currentTime={this.currentTime}
-          duration={this.duration}
+          currentTime={this._currentTime}
+          duration={this._duration}
         ></wc-time>
         <slot name="after-left"/>
         <wc-spacer></wc-spacer>
-        <slot name="before-right"/>
+         <slot name="before-right"/>
         <wc-picture-in-picture-toggle
-          nativeVideo={this.nativeVideo}
-        ></wc-picture-in-picture-toggle>
-        <wc-fullscreen-toggle
-          target={this.playerElement}
-        ></wc-fullscreen-toggle>
-        <slot name="after-right"/>
+           nativeVideo={this.getNativeVideo()}
+         ></wc-picture-in-picture-toggle>
+         <wc-fullscreen-toggle
+           target={this.getPlayerElement()}
+         ></wc-fullscreen-toggle>
+         <slot name="after-right"/>
       </Host>
-    );
+    )
   }
 
 }

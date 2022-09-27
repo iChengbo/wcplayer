@@ -7,26 +7,10 @@
 
 ## Properties
 
-| Property        | Attribute        | Description | Type                                                             | Default     |
-| --------------- | ---------------- | ----------- | ---------------------------------------------------------------- | ----------- |
-| `currentTime`   | `current-time`   |             | `number`                                                         | `0`         |
-| `currentVolume` | `current-volume` |             | `number`                                                         | `undefined` |
-| `duration`      | `duration`       |             | `number`                                                         | `0`         |
-| `isMuted`       | `is-muted`       |             | `boolean`                                                        | `undefined` |
-| `nativeVideo`   | --               |             | `HTMLVideoElement`                                               | `undefined` |
-| `playerElement` | --               |             | `HTMLElement`                                                    | `undefined` |
-| `videoStatus`   | `video-status`   |             | `VideoStatus.ENDED \| VideoStatus.PAUSED \| VideoStatus.PLAYING` | `undefined` |
-
-
-## Events
-
-| Event          | Description | Type               |
-| -------------- | ----------- | ------------------ |
-| `seeked`       |             | `CustomEvent<any>` |
-| `seeking`      |             | `CustomEvent<any>` |
-| `toggleMute`   |             | `CustomEvent<any>` |
-| `togglePlay`   |             | `CustomEvent<any>` |
-| `volumechange` |             | `CustomEvent<any>` |
+| Property           | Attribute | Description | Type                     | Default     |
+| ------------------ | --------- | ----------- | ------------------------ | ----------- |
+| `getNativeVideo`   | --        |             | `() => HTMLVideoElement` | `undefined` |
+| `getPlayerElement` | --        |             | `() => HTMLElement`      | `undefined` |
 
 
 ## Dependencies

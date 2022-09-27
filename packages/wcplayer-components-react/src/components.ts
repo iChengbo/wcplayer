@@ -19,6 +19,5 @@ export const WcPlayer = /*@__PURE__*/createReactComponent<JSX.WcPlayer, HTMLWcPl
 export const WcProgress = /*@__PURE__*/createReactComponent<JSX.WcProgress, HTMLWcProgressElement>('wc-progress');
 export const WcSpacer = /*@__PURE__*/createReactComponent<JSX.WcSpacer, HTMLWcSpacerElement>('wc-spacer');
 export const WcTime = /*@__PURE__*/createReactComponent<JSX.WcTime, HTMLWcTimeElement>('wc-time');
-export const WcVideo = /*@__PURE__*/createReactComponent<JSX.WcVideo, HTMLWcVideoElement>('wc-video');
 export const WcVolume = /*@__PURE__*/createReactComponent<JSX.WcVolume, HTMLWcVolumeElement>('wc-volume');
 export const WcVolumeControl = /*@__PURE__*/createReactComponent<JSX.WcVolumeControl, HTMLWcVolumeControlElement>('wc-volume-control');

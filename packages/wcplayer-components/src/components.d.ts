@@ -8,13 +8,8 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { VideoStatus } from "./constants";
 export namespace Components {
     interface WcControls {
-        "currentTime": number;
-        "currentVolume": number;
-        "duration": number;
-        "isMuted": boolean;
-        "nativeVideo": HTMLVideoElement;
-        "playerElement": HTMLElement;
-        "videoStatus": VideoStatus;
+        "getNativeVideo": () => HTMLVideoElement;
+        "getPlayerElement": () => HTMLElement;
     }
     interface WcFullscreenToggle {
         "target": HTMLElement;
@@ -35,8 +30,8 @@ export namespace Components {
     interface WcPlayer {
         "autoplay": boolean;
         "controls": boolean;
-        "getNativeVideo": () => Promise<HTMLVideoElement>;
         "muted": boolean;
+        "poster": string;
         "src": string;
     }
     interface WcProgress {
@@ -49,21 +44,6 @@ export namespace Components {
         "currentTime": number;
         "duration": number;
     }
-    interface WcVideo {
-        "autoplay": boolean;
-        "controls": boolean;
-        "getNativeVideo": () => Promise<HTMLVideoElement>;
-        "loop": boolean;
-        "muted": boolean;
-        "nativeProps": {};
-        "pause": () => Promise<void>;
-        "play": () => Promise<void>;
-        "poster": string;
-        "seek": (position: number) => Promise<void>;
-        "src": string;
-        "stop": () => Promise<void>;
-        "volume": number;
-    }
     interface WcVolume {
         "currentVolume": number;
         "isMuted": boolean;
@@ -73,10 +53,6 @@ export namespace Components {
         "volume": number;
     }
 }
-export interface WcControlsCustomEvent<T> extends CustomEvent<T> {
-    detail: T;
-    target: HTMLWcControlsElement;
-}
 export interface WcLayersCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLWcLayersElement;
@@ -84,10 +60,6 @@ export interface WcLayersCustomEvent<T> extends CustomEvent<T> {
 export interface WcProgressCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLWcProgressElement;
-}
-export interface WcVideoCustomEvent<T> extends CustomEvent<T> {
-    detail: T;
-    target: HTMLWcVideoElement;
 }
 export interface WcVolumeCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -164,12 +136,6 @@ declare global {
         prototype: HTMLWcTimeElement;
         new (): HTMLWcTimeElement;
     };
-    interface HTMLWcVideoElement extends Components.WcVideo, HTMLStencilElement {
-    }
-    var HTMLWcVideoElement: {
-        prototype: HTMLWcVideoElement;
-        new (): HTMLWcVideoElement;
-    };
     interface HTMLWcVolumeElement extends Components.WcVolume, HTMLStencilElement {
     }
     var HTMLWcVolumeElement: {
@@ -194,25 +160,14 @@ declare global {
         "wc-progress": HTMLWcProgressElement;
         "wc-spacer": HTMLWcSpacerElement;
         "wc-time": HTMLWcTimeElement;
-        "wc-video": HTMLWcVideoElement;
         "wc-volume": HTMLWcVolumeElement;
         "wc-volume-control": HTMLWcVolumeControlElement;
     }
 }
 declare namespace LocalJSX {
     interface WcControls {
-        "currentTime"?: number;
-        "currentVolume"?: number;
-        "duration"?: number;
-        "isMuted"?: boolean;
-        "nativeVideo"?: HTMLVideoElement;
-        "onSeeked"?: (event: WcControlsCustomEvent<any>) => void;
-        "onSeeking"?: (event: WcControlsCustomEvent<any>) => void;
-        "onToggleMute"?: (event: WcControlsCustomEvent<any>) => void;
-        "onTogglePlay"?: (event: WcControlsCustomEvent<any>) => void;
-        "onVolumechange"?: (event: WcControlsCustomEvent<any>) => void;
-        "playerElement"?: HTMLElement;
-        "videoStatus"?: VideoStatus;
+        "getNativeVideo"?: () => HTMLVideoElement;
+        "getPlayerElement"?: () => HTMLElement;
     }
     interface WcFullscreenToggle {
         "target"?: HTMLElement;
@@ -236,6 +191,7 @@ declare namespace LocalJSX {
         "autoplay"?: boolean;
         "controls"?: boolean;
         "muted"?: boolean;
+        "poster"?: string;
         "src"?: string;
     }
     interface WcProgress {
@@ -249,25 +205,6 @@ declare namespace LocalJSX {
     interface WcTime {
         "currentTime"?: number;
         "duration"?: number;
-    }
-    interface WcVideo {
-        "autoplay"?: boolean;
-        "controls"?: boolean;
-        "loop"?: boolean;
-        "muted"?: boolean;
-        "nativeProps"?: {};
-        "onCanplay"?: (event: WcVideoCustomEvent<any>) => void;
-        "onDurationchange"?: (event: WcVideoCustomEvent<any>) => void;
-        "onEnded"?: (event: WcVideoCustomEvent<any>) => void;
-        "onPause"?: (event: WcVideoCustomEvent<any>) => void;
-        "onPlay"?: (event: WcVideoCustomEvent<any>) => void;
-        "onPlaying"?: (event: WcVideoCustomEvent<any>) => void;
-        "onTimeupdate"?: (event: WcVideoCustomEvent<any>) => void;
-        "onVolumechange"?: (event: WcVideoCustomEvent<any>) => void;
-        "onWaiting"?: (event: WcVideoCustomEvent<any>) => void;
-        "poster"?: string;
-        "src"?: string;
-        "volume"?: number;
     }
     interface WcVolume {
         "currentVolume"?: number;
@@ -292,7 +229,6 @@ declare namespace LocalJSX {
         "wc-progress": WcProgress;
         "wc-spacer": WcSpacer;
         "wc-time": WcTime;
-        "wc-video": WcVideo;
         "wc-volume": WcVolume;
         "wc-volume-control": WcVolumeControl;
     }
@@ -312,7 +248,6 @@ declare module "@stencil/core" {
             "wc-progress": LocalJSX.WcProgress & JSXBase.HTMLAttributes<HTMLWcProgressElement>;
             "wc-spacer": LocalJSX.WcSpacer & JSXBase.HTMLAttributes<HTMLWcSpacerElement>;
             "wc-time": LocalJSX.WcTime & JSXBase.HTMLAttributes<HTMLWcTimeElement>;
-            "wc-video": LocalJSX.WcVideo & JSXBase.HTMLAttributes<HTMLWcVideoElement>;
             "wc-volume": LocalJSX.WcVolume & JSXBase.HTMLAttributes<HTMLWcVolumeElement>;
             "wc-volume-control": LocalJSX.WcVolumeControl & JSXBase.HTMLAttributes<HTMLWcVolumeControlElement>;
         }

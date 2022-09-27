@@ -4,3 +4,19 @@
   height: 100%;
   width: 100%;
 }
+
+.wc-live-player {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  background: #000000;
+  position: relative;
+}
+
+.wc-live-player-controls {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.5);
+}

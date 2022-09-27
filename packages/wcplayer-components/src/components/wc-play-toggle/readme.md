@@ -7,9 +7,9 @@
 
 ## Properties
 
-| Property | Attribute | Description | Type                                                             | Default              |
-| -------- | --------- | ----------- | ---------------------------------------------------------------- | -------------------- |
-| `status` | `status`  |             | `VideoStatus.ENDED \| VideoStatus.PAUSED \| VideoStatus.PLAYING` | `VideoStatus.PAUSED` |
+| Property | Attribute | Description | Type                                                                                    | Default              |
+| -------- | --------- | ----------- | --------------------------------------------------------------------------------------- | -------------------- |
+| `status` | `status`  |             | `VideoStatus.ENDED \| VideoStatus.PAUSED \| VideoStatus.PLAYING \| VideoStatus.WAITING` | `VideoStatus.PAUSED` |
 
 
 ## Dependencies

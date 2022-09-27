@@ -9,18 +9,8 @@ import type { JSX } from '@wcplayer/components';
 
 
 export const WcControls = /*@__PURE__*/ defineContainer<JSX.WcControls>('wc-controls', undefined, [
-  'currentTime',
-  'duration',
-  'videoStatus',
-  'currentVolume',
-  'isMuted',
-  'nativeVideo',
-  'playerElement',
-  'seeking',
-  'seeked',
-  'togglePlay',
-  'toggleMute',
-  'volumechange'
+  'getNativeVideo',
+  'getPlayerElement'
 ]);
 
 
@@ -57,7 +47,8 @@ export const WcPlayer = /*@__PURE__*/ defineContainer<JSX.WcPlayer>('wc-player',
   'src',
   'controls',
   'autoplay',
-  'muted'
+  'muted',
+  'poster'
 ]);
 
 
@@ -75,27 +66,6 @@ export const WcSpacer = /*@__PURE__*/ defineContainer<JSX.WcSpacer>('wc-spacer',
 export const WcTime = /*@__PURE__*/ defineContainer<JSX.WcTime>('wc-time', undefined, [
   'currentTime',
   'duration'
-]);
-
-
-export const WcVideo = /*@__PURE__*/ defineContainer<JSX.WcVideo>('wc-video', undefined, [
-  'autoplay',
-  'controls',
-  'loop',
-  'muted',
-  'poster',
-  'src',
-  'volume',
-  'nativeProps',
-  'canplay',
-  'play',
-  'pause',
-  'ended',
-  'playing',
-  'waiting',
-  'timeupdate',
-  'durationchange',
-  'volumechange'
 ]);
 
 

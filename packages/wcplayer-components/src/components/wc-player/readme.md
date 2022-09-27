@@ -12,37 +12,20 @@
 | `autoplay` | `autoplay` |             | `boolean` | `false`     |
 | `controls` | `controls` |             | `boolean` | `true`      |
 | `muted`    | `muted`    |             | `boolean` | `false`     |
+| `poster`   | `poster`   |             | `string`  | `undefined` |
 | `src`      | `src`      |             | `string`  | `undefined` |
-
-
-## Methods
-
-### `getNativeVideo() => Promise<HTMLVideoElement>`
-
-
-
-#### Returns
-
-Type: `Promise<HTMLVideoElement>`
-
-
 
 
 ## Dependencies
 
 ### Depends on
 
-- [wc-video](../wc-video)
-- [wc-layers](../wc-layers)
 - [wc-controls](../wc-controls)
 
 ### Graph
 ```mermaid
 graph TD;
-  wc-player --> wc-video
-  wc-player --> wc-layers
   wc-player --> wc-controls
-  wc-layers --> wc-play-pause-layer
   wc-controls --> wc-progress
   wc-controls --> wc-play-toggle
   wc-controls --> wc-volume-control
